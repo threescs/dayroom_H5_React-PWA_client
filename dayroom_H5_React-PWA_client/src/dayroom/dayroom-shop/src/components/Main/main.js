@@ -8,10 +8,9 @@ import classify from 'src/classify';
 
 import Footer from 'src/components/Footer';
 
-import Header from 'parentComponents/Header';
+import Header from 'src/components/Header';
 import TopBar from 'src/components/TopBar';
 import defaultClasses from 'parentComponents/Main/main.css';
-
 class Main extends Component {
     static propTypes = {
         classes: shape({

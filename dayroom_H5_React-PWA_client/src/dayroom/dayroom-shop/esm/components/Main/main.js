@@ -8,7 +8,7 @@ import classify from 'src/classify'; //Uncomment to use venia-concept footer aga
 //import Footer from 'parentComponents/Footer';
 
 import Footer from "../Footer";
-import Header from 'parentComponents/Header';
+import Header from "../Header";
 import TopBar from "../TopBar";
 import defaultClasses from 'parentComponents/Main/main.css';
 

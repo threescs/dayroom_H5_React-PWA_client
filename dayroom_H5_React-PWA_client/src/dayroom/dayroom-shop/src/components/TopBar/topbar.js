@@ -17,7 +17,7 @@ class TopBar extends Component {
 
         return (
             <div className={classes.root}>
-                A custom react component on top of venia-concept
+                Free Shipping over A$39
             </div>
         );
     }

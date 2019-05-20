@@ -12,7 +12,7 @@ class TopBar extends Component {
     } = this.props;
     return React.createElement("div", {
       className: classes.root
-    }, "A custom react component on top of venia-concept");
+    }, "Free Shipping over A$39");
   }
 
 }
