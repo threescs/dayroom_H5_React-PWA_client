@@ -1,0 +1,10 @@
+{
+    "name": "dayroom",
+    "short_name": "Dayroom",
+    "start_url": "/",
+    "theme_color": "#ff6334",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Shop the look"
+  }
+  

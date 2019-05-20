@@ -1,0 +1,10 @@
+{
+    "version": "independent",
+    "packages": [
+        "src/pwa-studio/packages/*",
+        "src/dayroom/dayroom-shop"
+
+    ],
+    "npmClient": "yarn",
+    "useWorkspaces": true
+}
