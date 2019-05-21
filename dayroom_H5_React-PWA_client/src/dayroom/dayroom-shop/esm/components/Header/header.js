@@ -2,8 +2,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 import React, { Component, Suspense } from 'react';
 import PropTypes from 'prop-types';
-import classify from 'src/classify';
-import { Link, resourceUrl, Route } from "@magento/venia-drivers";
+import classify from 'parentSrc/classify';
+import { Link, resourceUrl, Route } from 'parentSrc/drivers';
 import Icon from 'parentComponents/Icon';
 import SearchIcon from 'react-feather/dist/icons/search';
 import MenuIcon from 'react-feather/dist/icons/menu';
@@ -12,7 +12,7 @@ import NavTrigger from 'parentComponents/Header/navTrigger';
 import SearchTrigger from 'parentComponents/Header/searchTrigger';
 const SearchBar = React.lazy(() => import('parentComponents/SearchBar'));
 import defaultClasses from "./header.css";
-import Logo from 'parentComponents/Logo';
+import Logo from "../Logo";
 
 class Header extends Component {
   get searchIcon() {

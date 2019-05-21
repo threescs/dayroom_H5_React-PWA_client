@@ -1,3 +1,3 @@
 export { default as Header } from "./header";
-export { default } from 'parentComponents/Header/container';
+export { default } from "./container";
 //# sourceMappingURL=index.js.map
