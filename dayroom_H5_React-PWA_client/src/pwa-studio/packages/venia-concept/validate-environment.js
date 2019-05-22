@@ -55,7 +55,7 @@ function validateEnvironment(env) {
         ENABLE_SERVICE_WORKER_DEBUGGING: bool({
             desc:
                 'Use a service worker in developer mode (PWADevServer), which are disabled in dev mode normally to simplify cache. Good for debugging.',
-            default: false
+            default: true
         }),
         UPWARD_JS_UPWARD_PATH: str({
             desc:

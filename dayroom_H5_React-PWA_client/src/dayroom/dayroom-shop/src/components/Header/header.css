@@ -1,5 +1,5 @@
 .root {
-    background-color: rgb(246, 246, 246);
+    background-color: #fff;
     box-shadow: 0 1px rgb(224, 224, 224);
     display: grid;
     grid-auto-columns: 100%;
@@ -12,7 +12,7 @@
     z-index: 10;
 }
 .open {
-    background-color: rgb(246, 246, 246);
+    background-color: #fff;
     box-shadow: 0 1px rgb(224, 224, 224);
     display: grid;
     grid-auto-columns: 100%;
@@ -46,7 +46,7 @@
     pointer-events: auto;
     text-align: center;
     white-space: nowrap;
-    height: 3rem;
+    /* height: 3rem; */
     width: 3rem;
 }
 

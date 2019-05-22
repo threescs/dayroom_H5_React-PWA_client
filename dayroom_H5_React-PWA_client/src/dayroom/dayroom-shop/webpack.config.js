@@ -42,7 +42,7 @@ const libs = [
     'react-router-dom',
     'redux',
     'redux-actions',
-    'redux-thunk'
+    'redux-thunk',
 ];
 
 module.exports = async function(env) {
@@ -144,7 +144,7 @@ module.exports = async function(env) {
                     ],
                 },
                 {
-                    test: /\.(jpg|svg)$/,
+                    test: /\.(jpg|png|svg)$/,
                     use: [
                         {
                             loader: 'file-loader',

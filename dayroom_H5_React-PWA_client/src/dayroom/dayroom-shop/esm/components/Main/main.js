@@ -32,6 +32,7 @@ class Main extends Component {
     const {
       children
     } = props;
+    console.log(props);
     return React.createElement("main", {
       className: classes.root
     }, React.createElement(TopBar, null), React.createElement(Header, null), React.createElement("div", {

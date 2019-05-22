@@ -1,0 +1,30 @@
+.root {
+    display: block;
+    line-height: 1rem;
+    text-align: center;
+    background-color: pink;
+    border-radius: .5rem;
+    padding: 0.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.imageWrapper {
+    background-image: var(--venia-image);
+    background-position: 50% 50%;
+    background-size: cover;
+    display: block;
+    height: 4.5rem;
+    width: 50%;
+}
+
+.image {
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+}
+
+.name {
+    display: block;
+}
