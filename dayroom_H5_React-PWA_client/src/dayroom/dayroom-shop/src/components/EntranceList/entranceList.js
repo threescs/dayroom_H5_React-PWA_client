@@ -24,7 +24,7 @@ class EntranceList extends Component {
             {
                 text: 'Factory-direct means you get the best stuff first, for way less.',
                 href: 'story.html',
-                hrefName: 'discover',
+                hrefName: 'our story',
                 src: story,
             },
         ]

@@ -4,6 +4,17 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
+    position: relative;
+}
+.containerBox::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #3a3e46;
+    opacity: .2;
 }
 .containerText {
     position: absolute;
