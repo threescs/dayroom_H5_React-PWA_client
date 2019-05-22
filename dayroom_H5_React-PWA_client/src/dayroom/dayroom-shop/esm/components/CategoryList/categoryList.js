@@ -64,7 +64,6 @@ class CategoryList extends Component {
         }, "No child categories found.");
       }
 
-      console.log(data.category.children);
       return React.createElement("div", {
         className: classes.content
       }, data.category.children.map(item => React.createElement(CategoryTile, {

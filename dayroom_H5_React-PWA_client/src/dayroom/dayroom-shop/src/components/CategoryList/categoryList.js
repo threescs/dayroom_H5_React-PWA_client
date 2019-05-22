@@ -63,7 +63,6 @@ class CategoryList extends Component {
                                 </div>
                             );
                         }
-                        console.log(data.category.children);
                         return (
                             <div className={classes.content}>
                                 {data.category.children.map(item => (
