@@ -47,7 +47,7 @@ class TopBanner extends Component {
           <div className="swiper-wrapper">
             {
               data.map((item)=>(
-                <SwiperSlide key={item.id}>
+                <SwiperSlide key={item.img}>
                   <p>{item.img}</p>
                 </SwiperSlide>
               ))
@@ -56,7 +56,7 @@ class TopBanner extends Component {
           <div className="swiper-wrapper">
             {
               data.map((item)=>(
-                <SwiperSlide key={item.id}>
+                <SwiperSlide key={item.text}>
                   <p>{item.text}</p>
                 </SwiperSlide>
               ))

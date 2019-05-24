@@ -43,7 +43,7 @@ class Header extends Component {
                     <Link to={resourceUrl('/')}>
                         <Logo classes={{ logo: classes.logo }} />
                     </Link>
-                    
+
                 </div>
             </header>
         );

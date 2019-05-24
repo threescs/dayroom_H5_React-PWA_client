@@ -4,7 +4,6 @@ import { bool, shape, string } from 'prop-types';
 import classify from 'src/classify';
 
 //Uncomment to use venia-concept footer again
-//import Footer from 'parentComponents/Footer';
 
 import Footer from 'src/components/Footer';
 
