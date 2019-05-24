@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../src/components/EntranceList/index.js"],"names":["default"],"mappings":"AAAA,SAASA,OAAT","sourcesContent":["export { default } from './entranceList';\n"],"file":"index.js"}
