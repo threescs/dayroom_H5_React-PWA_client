@@ -52,7 +52,6 @@ class CategoryTile extends Component {
     render() {
         const { imagePath, props } = this;
         const { classes, item } = props;
-
         // interpolation doesn't work inside `url()` for legacy reasons
         // so a custom property should wrap its value in `url()`
         const imageUrl = imagePath ? `url(${imagePath})` : 'none';
