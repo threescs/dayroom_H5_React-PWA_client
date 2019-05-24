@@ -106,6 +106,7 @@ module.exports = async function(env) {
                                 importLoaders: 1,
                                 localIdentName:
                                     '[name]-[local]-[hash:base64:3]',
+                                    // '[local]',
                                 modules: true
                             }
                         }
@@ -129,7 +130,8 @@ module.exports = async function(env) {
                                 //root: paths.appSrc,
                                 importLoaders: 2,
                                 localIdentName:
-                                    '[name]-[local]-[hash:base64:3]',
+                                    // '[name]-[local]-[hash:base64:3]',
+                                    '[local]',
                                 modules: true,
                             }
                         },
