@@ -46,6 +46,7 @@ class CategoryList extends Component {
             <div className={classes.root}>
                 <Query query={categoryListQuery} variables={{ id }}>
                     {({ loading, error, data }) => {
+                        console.log(data);
                         if (error) {
                             return (
                                 <div className={classes.fetchError}>
