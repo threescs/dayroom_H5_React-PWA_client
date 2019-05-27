@@ -11,8 +11,19 @@ query category($id: Int!, $pageSize: Int!, $currentPage: Int!, $onServer: Boolea
                     small_image {
                         url
                     }
+                    media_gallery_entries {
+                        id
+                        file
+                        types
+                    }
                     url_key
                     price {
+                        minimalPrice {
+                            amount {
+                                value
+                                currency
+                            }
+                        }
                         regularPrice {
                             amount {
                                 value

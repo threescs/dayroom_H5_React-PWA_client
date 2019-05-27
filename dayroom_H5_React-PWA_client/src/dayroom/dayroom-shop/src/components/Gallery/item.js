@@ -42,6 +42,12 @@ class GalleryItem extends Component {
             small_image: string.isRequired,
             url_key: string.isRequired,
             price: shape({
+                minimalPrice: shape({
+                    amount: shape({
+                        value: number.isRequired,
+                        currency: string.isRequired
+                    }).isRequired
+                }).isRequired,
                 regularPrice: shape({
                     amount: shape({
                         value: number.isRequired,
@@ -80,14 +86,17 @@ class GalleryItem extends Component {
                 </Link>
                 <div className={classes.price}>
                     <Price
-                        value={price.regularPrice.amount.value}
-                        currencyCode={price.regularPrice.amount.currency}
+                        value={price.minimalPrice.amount.value}
+                        currencyCode={price.minimalPrice.amount.currency}
                     />
                 </div>
                 {/* old price */}
                 <div className={classes.oldPrice}> 
                     <span className={classes.lable}>Reference Price</span>
-                    <span className={classes.value}>A$180.00</span>
+                    <Price
+                        value={price.regularPrice.amount.value}
+                        currencyCode={price.regularPrice.amount.currency}
+                    />
                 </div>
             </div>
         );
@@ -103,7 +112,8 @@ class GalleryItem extends Component {
         return (
             <img
                 className={className}
-                src={transparentPlaceholder}
+                // 站位图
+                src=''
                 alt=""
                 width={imageWidth}
                 height={imageHeight}
@@ -123,14 +133,15 @@ class GalleryItem extends Component {
         }
 
         const { small_image, name } = item;
-
         return (
             <img
                 className={classes.image}
-                src={resourceUrl(small_image, {
-                    type: 'image-product',
-                    width: imageWidth
-                })}
+                // 图片cdn暂时更改
+                src={ 'https://cdn.dayroom.co/media/catalog/product' + small_image}
+                // src={resourceUrl(small_image, {
+                //     type: 'image-product',
+                //     width: imageWidth
+                // })}
                 alt={name}
                 width={imageWidth}
                 height={imageHeight}

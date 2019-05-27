@@ -10,8 +10,8 @@ export default class CMS extends Component {
         return (
             <div>
             <TopBanner/>
-            <CategoryList title="Shop by categoryf" id={1} />
-            <Category pageSize={4} currentPage={1} />
+            <CategoryList title="Shop by categoryf" id={2} />
+            <Category pageSize={4} currentPage={1} id={53}/>
             <EntranceList />
             </div>
         )

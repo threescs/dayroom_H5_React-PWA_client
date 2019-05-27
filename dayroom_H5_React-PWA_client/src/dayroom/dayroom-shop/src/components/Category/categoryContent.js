@@ -10,7 +10,13 @@ class CategoryContent extends Component {
         const items = data ? data.category.products.items : null;
         const title = data ? data.category.description : null;
         const categoryTitle = data ? data.category.name : null;
-
+        items.map(item => {
+            item.media_gallery_entries.forEach(itm => {
+                if(itm.types.includes('small_image')) {
+                    return item.small_image.url = itm.file;
+                }
+            })
+        })
         return (
             <article className={classes.root}>
                 <h1 className={classes.title}>

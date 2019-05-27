@@ -18,7 +18,8 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-    /\/media\/catalog.*\.(?:png|gif|jpg|jpeg|svg)$/,
+    new RegExp('https://cdn\.dayroom\.co/'),
+    // /\/media\/catalog.*\.(?:png|gif|jpg|jpeg|svg)$/,
     new workbox.strategies.StaleWhileRevalidate({
         cacheName: 'catalog',
         plugins: [

@@ -25,7 +25,7 @@ class Gallery extends Component {
         const { classes, data, pageSize } = this.props;
         const hasData = Array.isArray(data) && data.length;
         const items = hasData ? data : emptyData;
-
+        console.log(items);
         return (
             <div className={classes.root}>
                 <div className={classes.items}>
