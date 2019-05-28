@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {shape,string} from 'prop-types';
+import { shape,string } from 'prop-types';
 import classify from 'parentSrc/classify';
 import defaultClasses from './topbanner.scss';
 import SwiperContainer from 'src/components/SwiperContainer'

@@ -16,7 +16,7 @@ class SwiperContainer extends Component{
   componentDidMount(){
 
     const { settings } = this.props;
-    if(settings && settings.thumbs){
+    if (settings && settings.thumbs){
       var topBannerPicSwiper = new Swiper(this.refs.container,{
         loop:true,
         pagination:{
@@ -44,7 +44,7 @@ class SwiperContainer extends Component{
   }
 
   render(){
-    const { settings,children } = this.props;
+    const { settings, children } = this.props;
     if (settings.thumbs){
       return (
         <React.Fragment>

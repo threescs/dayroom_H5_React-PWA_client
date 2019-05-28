@@ -1,0 +1,59 @@
+.collection-banner {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 1.875rem;
+    .swiper-container{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      color: #fff;
+      padding: 0 1rem;
+      // padding-bottom: 2.5rem;
+      .box {
+        width: 90%;
+        .img {
+          width: 100%;
+          display: block;
+          border-radius: 0;
+          border-top-left-radius: .5rem;
+          border-top-right-radius: .5rem;
+        }
+        .boxFooter {
+          background-color: rgb(242, 242, 242);
+          padding: .625rem;
+          border-bottom-left-radius: .5rem;
+          border-bottom-right-radius: .5rem;
+          .footerTitle {
+            font-size: .875rem;
+            color: rgb(51, 51, 51);
+            font-weight: 600;
+          }
+          .pos {
+            display: flex;
+            justify-content: space-between;
+            margin-top: .5rem;
+            .footerBody {
+              font-size: .75rem;
+              color: #999;
+              font-family: 'Gibson-Light';
+            }
+            .href {
+              color: #ea9273;
+  
+            }
+          }
+        }
+      }
+    }
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
