@@ -72,7 +72,7 @@ const datas= {
               "items": [
                 {
                   "small_image": {
-                    "url": "http://dayroom.co/static/graphql/_view/en_US/Magento_Catalog/images/product/placeholder/small_image.jpg"
+                    "url": "https://cdn.dayroom.co/assets/home-menu-hot.png"
                   }
                 }
               ]
@@ -92,6 +92,25 @@ const datas= {
                 {
                   "small_image": {
                     "url": "https://cdn.dayroom.co/assets/home-menu-care.png"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": 9,
+            "name": "HOT",
+            "url_key": "gadgets",
+            "url_path": "gadgets",
+            "children_count": "13",
+            "path": "1/2/8",
+            "image": null,
+            "bgColor": 'ea9273',
+            "productImagePreview": {
+              "items": [
+                {
+                  "small_image": {
+                    "url": "https://cdn.dayroom.co/assets/home-menu-homeliving-pc.png"
                   }
                 }
               ]
