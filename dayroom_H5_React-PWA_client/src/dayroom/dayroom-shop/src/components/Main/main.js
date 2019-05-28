@@ -34,7 +34,6 @@ class Main extends Component {
     render() {
         const { classes, props } = this;
         const { children } = props;
-        console.log(props);
         return (
             <main className={classes.root}>
                 <TopBar />

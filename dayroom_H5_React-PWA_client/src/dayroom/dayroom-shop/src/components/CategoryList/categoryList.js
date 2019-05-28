@@ -6,6 +6,7 @@ import { loadingIndicator } from 'src/components/LoadingIndicator';
 import defaultClasses from './categoryList.css';
 import CategoryTile from './categoryTile';
 import categoryListQuery from '../../queries/getCategoryList.graphql';
+import datas from './mockData';
 
 class CategoryList extends Component {
     static propTypes = {
@@ -46,6 +47,7 @@ class CategoryList extends Component {
             <div className={classes.root}>
                 <Query query={categoryListQuery} variables={{ id }}>
                     {({ loading, error, data }) => {
+                        data = datas;
                         if (error) {
                             return (
                                 <div className={classes.fetchError}>
