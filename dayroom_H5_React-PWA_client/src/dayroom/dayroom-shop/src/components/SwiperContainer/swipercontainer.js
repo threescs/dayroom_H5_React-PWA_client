@@ -1,4 +1,4 @@
-import React, { Component,Fragment } from 'react';
+import React, { Component } from 'react';
 import {shape,string} from 'prop-types';
 import Swiper from 'swiper'
 
@@ -15,7 +15,7 @@ class SwiperContainer extends Component{
 
   componentDidMount(){
 
-    const {settings }= this.props
+    const { settings } = this.props;
     if(settings && settings.thumbs){
       var topBannerPicSwiper = new Swiper(this.refs.container,{
         loop:true,
@@ -44,9 +44,8 @@ class SwiperContainer extends Component{
   }
 
   render(){
-    const {classes,items,settings,children} = this.props;
-    if(settings.thumbs){
-
+    const { settings,children } = this.props;
+    if (settings.thumbs){
       return (
         <React.Fragment>
           <div className="swiper-container swiper-gallery" ref="container">

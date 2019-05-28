@@ -32,6 +32,7 @@ class CategoryTile extends Component {
     };
 
     get imagePath() {
+        console.log(this.props.item);
         const { image, productImagePreview } = this.props.item;
         const previewProduct = productImagePreview.items[0];
         if (image) {
@@ -40,10 +41,12 @@ class CategoryTile extends Component {
                 width: previewImageSize
             });
         } else if (previewProduct) {
-            return resourceUrl(previewProduct.small_image, {
-                type: 'image-product',
-                width: previewImageSize
-            });
+            //更改 mock数据
+            // return resourceUrl(previewProduct.small_image, {
+            //     type: 'image-product',
+            //     width: previewImageSize
+            // });
+            return productImagePreview.items[0].small_image
         } else {
             return null;
         }
@@ -52,21 +55,23 @@ class CategoryTile extends Component {
     render() {
         const { imagePath, props } = this;
         const { classes, item } = props;
-
         // interpolation doesn't work inside `url()` for legacy reasons
         // so a custom property should wrap its value in `url()`
         const imageUrl = imagePath ? `url(${imagePath})` : 'none';
         const style = { '--venia-image': imageUrl };
-
+        console.log(imagePath);
         // render an actual image element for accessibility
         const imagePreview = imagePath ? (
             <img className={classes.image} src={imagePath} alt={item.name} />
         ) : null;
-
+        const bgColor = {
+            backgroundColor: '#' + item.bgColor
+        }
         return (
             <Link
                 className={classes.root}
                 to={`/${item.url_key}${categoryUrlSuffix}`}
+                style={bgColor}
             >
                 <span className={classes.imageWrapper} style={style}>
                     {imagePreview}
