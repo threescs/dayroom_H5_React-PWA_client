@@ -62,7 +62,7 @@ class SwiperContainer extends Component{
     return (
       <div className="swiper-container swiper-gallery" ref="container">
             <div className="swiper-wrapper">
-              {this.props.children}
+              {children}
             </div>
             <div className="swiper-pagination"></div>
           </div>

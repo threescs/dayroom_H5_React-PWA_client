@@ -3,18 +3,13 @@
     overflow: hidden;
     .swiper-container{
       width: 100%;
-  
+
       &.swiper-thumbs {
         width: 80%;
         margin-left: 0;
         margin-right: 0;
         transform: translateY(-10px);
-  
-        .swiper-wrapper {
-          min-height: 100px;
-          max-height: 150px;
-        }
-  
+
         .swiper-slide{
           display: flex;
           justify-content: center;
@@ -23,26 +18,25 @@
           background: #fa0;
         }
       }
-  
+
       &.swiper-gallery {
         width: 100%;
         min-height: 200px;
         background: #eee;
       }
-  
+
       .swiper-pagination {
         // bottom: 0;
       }
-  
-  
+
+
     }
-  
+
   }
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
