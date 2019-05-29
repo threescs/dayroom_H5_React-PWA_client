@@ -1,5 +1,27 @@
 .is-collapsed {
   .accordion-content__list {
+    height: 0;
+  }
+
+  .icon-arrow__down {
     display: none;
   }
+
+  .icon-arrow__right {
+    display: block;
+  }
+}
+
+.icon-arrow__down {
+  display: block;
+}
+
+.icon-arrow__right {
+  display: none;
+}
+
+
+.accordion-content__list {
+  height: auto;
+  overflow: hidden;
 }

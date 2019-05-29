@@ -1,0 +1,35 @@
+.accordion-container {
+  margin-top: .625rem;
+}
+
+.accordion-container {
+  font-family: Gibson;
+  font-size: .8rem;
+  border-top: 1px solid rgba(0,0,0,.1);
+  margin: .625rem -1rem 0;
+}
+.accordion-item {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  .accordion-item__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    padding-top: .625rem;
+    padding-bottom: .625rem;
+    text-transform: uppercase;
+  }
+
+  .accordion-content__list {
+   text-transform: capitalize;
+
+   .accordion-content__item {
+     padding-bottom: .5rem;
+   }
+
+ }
+
+}

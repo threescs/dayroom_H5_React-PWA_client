@@ -13,6 +13,7 @@ import visaLogo from './footer-icon-visa.png';
 import masterLogo from './footer-icon-master.png';
 import amexLogo from './footer-icon-amex.png';
 import discoverLogo from './footer-icon-discover.png';
+import FooterAccordion from 'src/components/FooterAccordion'
 class Footer extends Component {
     static propTypes = {
         classes: PropTypes.shape({
@@ -96,6 +97,7 @@ class Footer extends Component {
                         </button>
                     </div>
                 </div>
+                <FooterAccordion/>
                 <div className={classes.linklogo}>
                     <ul className={classes.outer}>
                         {logoListChildren}

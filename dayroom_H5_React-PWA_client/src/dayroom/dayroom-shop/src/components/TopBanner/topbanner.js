@@ -26,7 +26,6 @@ class TopBanner extends Component {
               data.map((item)=>(
                 <SwiperSlide key={item.img}>
                   <img src={item.src} alt=""/>
-                  <p>{item.img}</p>
                 </SwiperSlide>
               ))
             }
@@ -35,8 +34,9 @@ class TopBanner extends Component {
             {
               data.map((item)=>(
                 <SwiperSlide key={item.text}>
-                  <img src={item.src} alt=""/>
-                  <p>{item.text}</p>
+                  <div className="title" dangerouslySetInnerHTML={{__html:item.text.title}}></div>
+                  <div className="sub-title" dangerouslySetInnerHTML={{__html:item.text.subtitle}} ></div>
+                  <a className="link-address" href={item.text.link.url}>{item.text.link.text}</a>
                 </SwiperSlide>
               ))
             }

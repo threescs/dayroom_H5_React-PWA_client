@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import classify from 'src/classify'
 import defaultClasses from './accordion.scss'
 import { returnStatement } from '@babel/types';
+import Icon from 'parentComponents/Icon';
+import ChevronDown from 'react-feather/dist/icons/chevron-down';
+import ChevronRight from  'react-feather/dist/icons/chevron-right';
 
 class Accordion extends Component{
   constructor(props){
@@ -23,20 +26,21 @@ class Accordion extends Component{
 
       event.currentTarget.isCollapsed =  !event.currentTarget.isCollapsed;
 
-      // this.refs.accordionContainer.children
       if(event.currentTarget.isCollapsed){
         event.currentTarget.parentNode.className = event.currentTarget.parentNode.className.replace(/\s*is-collapsed\s*/,'');
 
         for(let i =0,len = this.refs.accordionContainer.children.length; i<len; i++ ){
           if(this.refs.accordionContainer.children[i] !== event.currentTarget.parentNode ){
-            console.log(this.refs.accordionContainer.children[i]);
             if(!this.state.regCollapsed.test(this.refs.accordionContainer.children[i].className)){
-              this.refs.accordionContainer.children[i].className = this.refs.accordionContainer.children[i].className+' is-collapsed'
+              this.refs.accordionContainer.children[i].className = this.refs.accordionContainer.children[i].className+' is-collapsed';
+              this.refs.accordionContainer.children[i].getElementsByClassName('accordion-item__title')[0].isCollapsed = !this.refs.accordionContainer.children[i].getElementsByClassName('accordion-item__title')[0].isCollapsed
             }
           }
         }
       } else {
-        event.currentTarget.parentNode.className = event.currentTarget.parentNode.className+' is-collapsed'
+        if(!this.state.regCollapsed.test(event.currentTarget.parentNode.className)){
+          event.currentTarget.parentNode.className = event.currentTarget.parentNode.className+' is-collapsed'
+        }
 
       }
 
@@ -50,8 +54,16 @@ class Accordion extends Component{
       {
         items.map( (item) => (
           <div className={this.state.expand?'':'is-collapsed'+ ` accordion-item`} key={item.id} >
-            <h4 onClick={this.onClickHandle} className="accordion-item__title">{item.title} <span className="icon icon-arrow__down"></span></h4>
-            <AccordionContent lists={item.sublists} ref="AccordionContent" />
+            <h4 onClick={this.onClickHandle} className="accordion-item__title">
+              {item.title}
+              <span className="icon icon-arrow__down ">
+                <Icon src={ChevronDown} />
+              </span>
+              <span class="icon icon-arrow__right">
+                <Icon src={ChevronRight} />
+              </span>
+            </h4>
+            <AccordionContent lists={item.sublists} />
           </div>
         ))
       }

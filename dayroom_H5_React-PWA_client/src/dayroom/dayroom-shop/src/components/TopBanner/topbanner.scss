@@ -4,23 +4,41 @@
   .swiper-container{
     width: 100%;
 
+    &.swiper-gallery {
+      .swiper-pagination {
+        bottom: 100px;
+      }
+    }
+
     &.swiper-thumbs {
       width: 80%;
       margin-left: 0;
       margin-right: 0;
-      transform: translateY(-10px);
-
-      .swiper-wrapper {
-        min-height: 100px;
-        max-height: 150px;
-      }
+      transform: translateY(-100px);
 
       .swiper-slide{
         display: flex;
         justify-content: center;
+        flex-direction: column;
         width: 100%;
+        color: #fff;
         padding: 30px 20px;
         background: #fa0;
+        .title {
+          font-family: 'Gibson-SemiBold';
+          font-size: 24px;
+        }
+        .sub-title {
+          font-family: 'Gibson-Light';
+          font-size: 11px;
+          margin-top:10px;
+          margin-bottom:20px;
+        }
+
+        .link-address {
+          font-family: 'Gibson-SemiBold';
+          font-size: 12px;
+        }
       }
     }
 
@@ -29,12 +47,6 @@
       min-height: 200px;
       background: #eee;
     }
-
-    .swiper-pagination {
-      // bottom: 0;
-    }
-
-
   }
 
 }

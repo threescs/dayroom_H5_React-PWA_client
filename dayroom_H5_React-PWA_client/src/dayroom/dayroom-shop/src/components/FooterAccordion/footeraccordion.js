@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
+
 import classify from 'src/classify'
 import defaultClasses from "./footeraccordion.scss"
-
-import { Link, resourceUrl } from 'src/drivers';
+// import { Link, resourceUrl } from 'src/drivers';
 
 import Accordion from 'src/components/Accordion'
 
@@ -12,85 +12,76 @@ class FooterAccordion extends Component{
     const data = [
       {
         id:0,
-        title:'info',
+        title:'company info',
         sublists:[
           {
             id:0,
-            title:'info 1',
-            url:'javascript:;'
-          },
-          {
-            id:1,
-            title:'info 2',
-            url:'javascript:;'
-          },
-          {
-            id:2,
-            title:'info 3',
-            url:'javascript:;'
-          },
-          {
-            id:3,
-            title:'info 4',
+            title:'our story',
             url:'javascript:;'
           }
         ]
       },
       {
         id:1,
-        title:'about',
+        title:'customer care',
         sublists:[
           {
             id:0,
-            title:'about 1',
+            title:'contact us',
             url:'javascript:;'
           },
           {
             id:1,
-            title:'about 2',
-            url:'javascript:;'
-          },
-          {
-            id:2,
-            title:'about 3',
-            url:'javascript:;'
-          },
-          {
-            id:3,
-            title:'about 4',
+            title:'payment method',
             url:'javascript:;'
           }
         ]
       },
       {
         id:2,
-        title:'bar',
+        title:'Help Support',
         sublists:[
           {
             id:0,
-            title:'bar 1',
+            title:'FQAs',
             url:'javascript:;'
           },
           {
             id:1,
-            title:'bar 2',
+            title:'Shipping Info',
             url:'javascript:;'
           },
           {
             id:2,
-            title:'bar 3',
+            title:'Return',
             url:'javascript:;'
           },
           {
             id:3,
-            title:'bar 4',
+            title:'Sitemap',
+            url:'javascript:;'
+          }
+        ]
+      },
+      {
+        id:3,
+        title:'Term & Conditions',
+        sublists:[
+          {
+            id:0,
+            title:'Terms & Conditions',
+            url:'javascript:;'
+          },
+          {
+            id:1,
+            title:'Privacy & Scurity policy',
             url:'javascript:;'
           }
         ]
       }
     ];
     return (
-      <Accordion  items={data}>
+      <Accordion items={data}>
       </Accordion>
     )
   }
