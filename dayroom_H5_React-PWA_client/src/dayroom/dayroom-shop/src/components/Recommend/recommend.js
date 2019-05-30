@@ -97,7 +97,7 @@ class Recommend extends Component {
         </SwiperContainer>
         <div className="social-media__popup" ref="socialPopup">
           <div className={this.state.platform+'-social-popup-wrapper' +` social-popup-wrapper`}>
-            <span  className="social-popup__close" onClick={()=>this.onClickHidePopup(event)}>
+            <span styling="link" className="social-popup__close" onClick={()=>this.onClickHidePopup(event)}>
               <Icon src={Close}/>
             </span>
             <div className="social-popup__main">
