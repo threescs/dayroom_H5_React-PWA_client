@@ -32,7 +32,6 @@ class CategoryTile extends Component {
     };
 
     get imagePath() {
-        console.log(this.props.item);
         const { image, productImagePreview } = this.props.item;
         const previewProduct = productImagePreview.items[0];
         if (image) {
@@ -59,7 +58,6 @@ class CategoryTile extends Component {
         // so a custom property should wrap its value in `url()`
         const imageUrl = imagePath ? `url(${imagePath})` : 'none';
         const style = { '--venia-image': imageUrl };
-        console.log(imagePath);
         // render an actual image element for accessibility
         const imagePreview = imagePath ? (
             <img className={classes.image} src={imagePath} alt={item.name} />
