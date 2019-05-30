@@ -72,8 +72,9 @@ svg {
     color: #333;
 }
 .copyright {
+    font-family: 'Gibson-Regular','Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
     display: block;
-    color: rgb(var(--venia-text-alt));
+    color: #333;
     font-size: 0.75rem;
     padding: 0 2rem 1.5rem 2rem;
     text-align: center;

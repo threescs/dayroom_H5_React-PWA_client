@@ -1,47 +1,68 @@
 import React, { Component } from 'react';
 import { shape,string } from 'prop-types';
-import { Query } from 'src/drivers';
 import classify from 'parentSrc/classify';
 import defaultClasses from './swiperProduct.scss';
+import { connect, Query } from 'src/drivers';
+import { setCurrentPage, setPrevPageTotal } from 'src/actions/catalog';
 import SwiperContainer from 'src/components/SwiperContainer'
 import SwiperSlide from "src/components/SwiperSlide";
-// import data from "./mockData";
-import categoryQuery from 'src/queries/getCategory.graphql';
+import GalleryItem from "src/components/Gallery/item";
+import data from './mockData';
 
 class SwiperProduct extends Component {
-  static propTypes = {
-    classes:shape({
-      root:string
-    })
+  mapGalleryItem(item) {
+    const { small_image } = item;
+    return {
+        ...item,
+        small_image:
+            typeof small_image === 'object' ? small_image.url : small_image
+    };
   }
-
+  
   render(){
     const settings = {
       thumbs:false
     };
-    const { props } = this;
-    const { id, pageSize, currentPage} = props;
+    data.map(item => {
+      item.media_gallery_entries.forEach(itm => {
+          if(itm.types.includes('small_image')) {
+              return item.small_image.url = itm.file;
+          }
+      })
+    })
     return (
-      <Query
-          query={categoryQuery}
-          variables={{
-          id: Number(id),
-          onServer: false,
-          pageSize: Number(pageSize),
-          currentPage: Number(currentPage)
-          }}
-      >
-        {({ loading, error, data }) => {
-          console.log(data);
-          <div className="top-banner">
-            <SwiperContainer className="swiper-gallery" settings={settings} >
-                <div>111</div>
-            </SwiperContainer>
-          </div>
-        }}
-      </Query>
+            // <Query
+            //     query={categoryQuery}
+            //     variables={{
+            //         id: Number(id),
+            //         onServer: false,
+            //         pageSize: Number(pageSize),
+            //         currentPage: Number(currentPage)
+            //     }}
+            // >
+            //     {({ data }) => {
+                  <div className="product-banner">
+                  <SwiperContainer className="swiper-gallery" settings={settings} >
+                      {
+                        data.map((item)=>(
+                          <SwiperSlide key={item.id}>
+                            <GalleryItem item={this.mapGalleryItem(item)} />
+                          </SwiperSlide>
+                        ))
+                      }
+                  </SwiperContainer>
+                </div>
+          //           }}
+          //  </Query>
     )
   }
 }
-
+// const mapStateToProps = ({ catalog }) => {
+//   return {
+//       currentPage: catalog.currentPage,
+//       pageSize: catalog.pageSize,
+//       prevPageTotal: catalog.prevPageTotal
+//   };
+// };
+// const mapDispatchToProps = { setCurrentPage, setPrevPageTotal };
 export default classify(defaultClasses)(SwiperProduct);

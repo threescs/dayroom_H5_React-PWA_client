@@ -44,7 +44,6 @@ class GalleryItems extends Component {
 
     render() {
         const { items } = this.props;
-
         if (items === emptyData) {
             return this.placeholders;
         }

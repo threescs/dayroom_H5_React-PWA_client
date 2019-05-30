@@ -52,14 +52,14 @@ class Accordion extends Component{
     return (
       <div className="accordion-container" ref="accordionContainer">
       {
-        items.map( (item) => (
+        items.map((item) => (
           <div className={this.state.expand?'':'is-collapsed'+ ` accordion-item`} key={item.id} >
             <h4 onClick={this.onClickHandle} className="accordion-item__title">
               {item.title}
               <span className="icon icon-arrow__down ">
                 <Icon src={ChevronDown} />
               </span>
-              <span class="icon icon-arrow__right">
+              <span className="icon icon-arrow__right">
                 <Icon src={ChevronRight} />
               </span>
             </h4>

@@ -102,6 +102,7 @@ class Category extends Component {
 }
 
 const mapStateToProps = ({ catalog }) => {
+    console.log(catalog);
     return {
         currentPage: catalog.currentPage,
         pageSize: catalog.pageSize,
