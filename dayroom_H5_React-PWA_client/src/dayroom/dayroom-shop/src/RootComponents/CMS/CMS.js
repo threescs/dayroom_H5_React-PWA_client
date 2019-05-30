@@ -6,6 +6,7 @@ import Category from '../../components/Category';
 import Collection from '../../components/Collection';
 import SwiperHint from '../../components/SwiperHint';
 import SwiperProduct from '../../components/SwiperProduct';
+import Recommend from 'src/components/Recommend'
 export default class CMS extends Component {
     render() {
 
@@ -17,6 +18,7 @@ export default class CMS extends Component {
             <Collection />
             <Category pageSize={4} currentPage={1} id={53}/>
             <SwiperHint />
+            <Recommend />
             <EntranceList />
             </div>
         )

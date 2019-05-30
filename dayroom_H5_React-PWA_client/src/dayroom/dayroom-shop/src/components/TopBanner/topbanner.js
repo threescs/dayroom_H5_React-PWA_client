@@ -33,7 +33,7 @@ class TopBanner extends Component {
           <div className="swiper-wrapper">
             {
               data.map((item)=>(
-                <SwiperSlide key={item.text}>
+                <SwiperSlide key={item.text.title}>
                   <div className="title" dangerouslySetInnerHTML={{__html:item.text.title}}></div>
                   <div className="sub-title" dangerouslySetInnerHTML={{__html:item.text.subtitle}} ></div>
                   <a className="link-address" href={item.text.link.url}>{item.text.link.text}</a>

@@ -34,6 +34,7 @@ class SwiperContainer extends Component{
       })
     }else{
       var topBannerPicSwiper = new Swiper(this.refs.container,{
+        slidesPerView: "auto",
         loop:true,
         pagination:{
           el:'.swiper-pagination',

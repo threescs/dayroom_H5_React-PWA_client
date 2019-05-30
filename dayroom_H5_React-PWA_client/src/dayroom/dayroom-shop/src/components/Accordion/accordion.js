@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import classify from 'src/classify'
 import defaultClasses from './accordion.scss'
-import { returnStatement } from '@babel/types';
 import Icon from 'parentComponents/Icon';
 import ChevronDown from 'react-feather/dist/icons/chevron-down';
 import ChevronRight from  'react-feather/dist/icons/chevron-right';
