@@ -1,0 +1,60 @@
+.top-banner {
+  width: 100%;
+  margin-bottom: -10rem;
+  overflow: hidden;
+  .swiper-container{
+    width: 100%;
+
+    &.swiper-gallery {
+      .swiper-pagination {
+        bottom: 10rem;
+      }
+    }
+
+    &.swiper-thumbs {
+      width: 80%;
+      margin-left: 0;
+      margin-right: 0;
+      transform: translateY(-10rem);
+
+      .swiper-slide{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        color: #fff;
+        padding: 30px 20px;
+        background: #fa0;
+        .title {
+          font-family: 'Gibson-SemiBold';
+          font-size: 24px;
+        }
+        .sub-title {
+          font-family: 'Gibson-Light';
+          font-size: 11px;
+          margin-top:10px;
+          margin-bottom:20px;
+        }
+
+        .link-address {
+          font-family: 'Gibson-SemiBold';
+          font-size: 12px;
+        }
+      }
+    }
+
+    &.swiper-gallery {
+      width: 100%;
+      min-height: 200px;
+      background: #eee;
+    }
+  }
+
+}
+
+
+
+
+
+
+

@@ -4,7 +4,6 @@ import { bool, shape, string } from 'prop-types';
 import classify from 'src/classify';
 
 //Uncomment to use venia-concept footer again
-//import Footer from 'parentComponents/Footer';
 
 import Footer from 'src/components/Footer';
 
@@ -35,7 +34,6 @@ class Main extends Component {
     render() {
         const { classes, props } = this;
         const { children } = props;
-        console.log(props);
         return (
             <main className={classes.root}>
                 <TopBar />

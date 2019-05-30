@@ -12,6 +12,7 @@ import 'parentSrc/index.css';
 // we create this file here instead of scss because of loading order
 import './general.css';
 
+
 const { BrowserPersistence } = Util;
 const apiBase = new URL('/graphql', location.origin).toString();
 
