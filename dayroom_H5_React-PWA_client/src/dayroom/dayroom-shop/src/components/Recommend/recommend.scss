@@ -1,0 +1,218 @@
+.social-media {
+  &-container {
+    font-family: "Gibson-Regular";
+    margin-bottom: 1.875rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    .swiper-container {
+      padding-bottom: 1.25rem;
+
+      .swiper-pagination {
+        bottom: 0;
+      }
+
+      .swiper-pagination-bullet-active {
+        background-color: #ea9273;
+      }
+
+      .swiper-slide {
+        width: 62.5%;
+        margin-right: .625rem;
+      }
+    }
+  }
+
+  &__title {
+
+    text-align: center;
+    font-size: 1rem;
+    padding-top: .625rem;
+    padding-bottom: 1.25rem;
+  }
+
+  &__main {
+
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+
+    img{
+      position: absolute;
+      top:0;
+      left: 0;
+      display: block;
+      width: 100%;
+    }
+    .icon-mark {
+      position: absolute;
+      top: .625rem;
+      left: .625rem;
+      z-index: 3;
+      color: rgb(247, 61, 61);
+    }
+
+    .icon-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 3;
+      transform:translate3d(-50%,-50%,0);
+      -webkit-transform:translate3d(-50%,-50%,0);
+      -ms-transform:translate3d(-50%,-50%,0);
+      color: #fff;
+    }
+  }
+
+  &__popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(0,0,0,.5);
+
+    .social-popup {
+
+      &-wrapper {
+        position: absolute;
+        top: 1.25rem;
+        bottom: 1.25rem;
+        left: 6%;
+        z-index: 3;
+        width: 88%;
+
+        &.youtube-social-popup-wrapper {
+
+          top: 50%;
+          bottom: auto;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+
+          .social-video__content {
+            background: #f6f6f6;
+          }
+          .social-popup__main {
+            position: relative;
+            width: 100%;
+            padding-bottom: 10rem;
+            > img {
+              position: absolute;
+              left: 0;
+              bottom:0;
+              display: block;
+              width: 100%;
+            }
+
+            .social-link {
+              top: auto;
+              left: 0;
+              bottom: 7.95rem;
+              height: 2.5rem;
+            }
+
+            .procut-link {
+              width: 7.8125rem;
+              left: auto;
+              right: .625rem;
+              bottom: .5rem;
+            }
+          }
+        }
+
+        .popup-background {
+          display: block;
+          width: 100%;
+        }
+
+        .social-link {
+          position: absolute;
+          top: .3125rem;
+          left: .3125rem;
+          z-index: 5;
+          height: 2.7rem;
+
+          img{
+            width: auto;
+            height: 100%;
+          }
+        }
+
+        .procut-link {
+          position: absolute;
+          bottom: .25rem;
+          left: .625rem;
+          right: .625rem;
+          z-index: 4;
+
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+
+      }
+
+      &__close {
+        position: absolute;
+        top: -0.625rem;
+        right: -0.625rem;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.875rem;
+        height: 1.875rem;
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      &__main {
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+
+
+    }
+  }
+
+}
+
+
+
+.social-celebrity__info {
+  position: absolute;
+  bottom: .375rem;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  line-height: 1rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding-left: .625rem;
+  padding-right: .625rem;
+
+  > span {
+    flex-shrink: 0;
+  }
+  .info__name {
+    width: 60%;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .info__fans {
+    width: 40%;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
