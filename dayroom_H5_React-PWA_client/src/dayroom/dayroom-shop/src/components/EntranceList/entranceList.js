@@ -5,6 +5,7 @@ import defaultClasses from './entranceList.css';
 import EntranceItem from './entranceItem';
 import blog from './blog-home-pc.png';
 import story from './story-home-pc.png';
+import LazyLoad from 'react-lazyload';
 
 class EntranceList extends Component {
     static propTypes = {
@@ -34,7 +35,9 @@ class EntranceList extends Component {
         const { classes } = this.props;
         return (
             <div className={classes.entranceBox}>
-                 {mapEntranceList}
+                <LazyLoad height={200} once={true}>
+                    {mapEntranceList}
+                 </LazyLoad>
             </div>
         )
     }

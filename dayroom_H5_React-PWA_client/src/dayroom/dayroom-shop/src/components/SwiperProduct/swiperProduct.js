@@ -7,13 +7,17 @@ import { setCurrentPage, setPrevPageTotal } from 'src/actions/catalog';
 import SwiperContainer from 'src/components/SwiperContainer'
 import SwiperSlide from "src/components/SwiperSlide";
 import GalleryItem from "src/components/Gallery/item";
-import data from './mockData';
-
+import categoryQuery from 'src/queries/getCategory.graphql';
 class SwiperProduct extends Component {
-  mapGalleryItem(item) {
-    const { small_image } = item;
+  mapGalleryItem(data) {
+      data.media_gallery_entries.forEach((item) => {
+          if(item.types.includes('small_image')) {
+              return data.small_image.url = item.file;
+          }
+      })
+    const { small_image } = data;
     return {
-        ...item,
+        ...data,
         small_image:
             typeof small_image === 'object' ? small_image.url : small_image
     };
@@ -23,37 +27,37 @@ class SwiperProduct extends Component {
     const settings = {
       thumbs:false
     };
-    data.map(item => {
-      item.media_gallery_entries.forEach(itm => {
-          if(itm.types.includes('small_image')) {
-              return item.small_image.url = itm.file;
-          }
-      })
-    })
+    
     return (
-            // <Query
-            //     query={categoryQuery}
-            //     variables={{
-            //         id: Number(id),
-            //         onServer: false,
-            //         pageSize: Number(pageSize),
-            //         currentPage: Number(currentPage)
-            //     }}
-            // >
-            //     {({ data }) => {
-                  <div className="product-banner">
-                  <SwiperContainer className="swiper-gallery" settings={settings} >
-                      {
-                        data.map((item)=>(
-                          <SwiperSlide key={item.id}>
-                            <GalleryItem item={this.mapGalleryItem(item)} />
-                          </SwiperSlide>
-                        ))
-                      }
-                  </SwiperContainer>
-                </div>
-          //           }}
-          //  </Query>
+            <Query
+                query={categoryQuery}
+                variables={{
+                    id: 54,
+                    onServer: false,
+                    pageSize: 6,
+                    currentPage: 1
+                }}
+            >
+                {({ data }) => {
+                  console.log(data);
+                  const produtItem = data ? data.category.products.items : null;
+                  const categoryTitle = data ? data.category.name : null;
+                  return (
+                    <div className="product-banner">
+                      <div className="product-title">{categoryTitle}</div>
+                      <SwiperContainer className="swiper-gallery" settings={settings} >
+                          {
+                            produtItem.map((item)=>(
+                              <SwiperSlide key={item.id}>
+                                <GalleryItem item={this.mapGalleryItem(item)} />
+                              </SwiperSlide>
+                            ))
+                          }
+                      </SwiperContainer>
+                    </div>
+                      )
+                    }}
+           </Query>
     )
   }
 }

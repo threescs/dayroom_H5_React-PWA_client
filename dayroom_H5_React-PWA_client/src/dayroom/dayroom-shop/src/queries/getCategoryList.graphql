@@ -8,6 +8,18 @@ query categoryList($id: Int!) {
             url_key
             url_path
             children_count
+                children {
+                    id
+                    level
+                    name
+                    path
+                    children {
+                        id
+                        level
+                        name
+                        path
+                    }
+                    }
             path
             image
             productImagePreview: products(pageSize: 1) {

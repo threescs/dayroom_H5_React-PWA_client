@@ -11,6 +11,9 @@
       color: #fff;
       padding: 0 1rem;
       // padding-bottom: 2.5rem;
+      .swiper-pagination-bullet-active {
+        background: #ea9273;
+      }
       .box {
         width: 90%;
         .img {

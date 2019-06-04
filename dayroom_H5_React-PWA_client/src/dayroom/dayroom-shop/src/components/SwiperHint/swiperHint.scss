@@ -10,6 +10,13 @@
       justify-content: center;
       align-content: center;
       color: #fff;
+      .swiper-pagination-bullet-active {
+        background: #fff;
+      }
+      .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+      }
       .box {
         display: flex;
         margin: 0.635rem auto;

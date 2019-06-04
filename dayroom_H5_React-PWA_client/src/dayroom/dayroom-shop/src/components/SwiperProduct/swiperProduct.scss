@@ -3,6 +3,14 @@
   overflow: hidden;
   margin-bottom: 1.875rem;
   padding: 0 1rem;
+  .product-title {
+    font-size: 1rem;
+    letter-spacing: 0;
+    margin: 0 auto;
+    color: #333;
+    text-align: center;
+    margin: .5rem 0 1.5rem;
+  }
   .swiper-container{
     width: 100%;
     display: flex;
@@ -14,6 +22,16 @@
       display: flex;
       // margin-right: .625rem;
       width: 50% !important;
+    }
+    .swiper-pagination-bullets {
+      bottom: 0;
+      .swiper-pagination-bullet-active {
+        background: #ea9273;
+      }
+      .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+      }
     }
     // padding-bottom: 2.5rem;
     .box {

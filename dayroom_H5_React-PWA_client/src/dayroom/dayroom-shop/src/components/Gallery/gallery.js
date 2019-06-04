@@ -25,6 +25,15 @@ class Gallery extends Component {
         const { classes, data, pageSize } = this.props;
         const hasData = Array.isArray(data) && data.length;
         const items = hasData ? data : emptyData;
+        items.map(item => {
+            if(item.media_gallery_entries) {
+                item.media_gallery_entries.forEach(itm => {
+                    if(itm.types.includes('small_image')) {
+                        return item.small_image.url = itm.file;
+                    }
+                })
+            }
+        })
         return (
             <div className={classes.root}>
                 <div className={classes.items}>
