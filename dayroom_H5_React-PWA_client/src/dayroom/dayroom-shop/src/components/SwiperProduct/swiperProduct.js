@@ -27,14 +27,13 @@ class SwiperProduct extends Component {
     const settings = {
       thumbs:false,
       slidesPerGroup: 2,
-      // spaceBetween: 15
     };
-
+    const { id } = this.props;
     return (
             <Query
                 query={categoryQuery}
                 variables={{
-                    id: 54,
+                    id: Number(id),
                     onServer: false,
                     pageSize: 6,
                     currentPage: 1

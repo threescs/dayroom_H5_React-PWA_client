@@ -14,11 +14,12 @@ export default class CMS extends Component {
             <div>
             <TopBanner />
             <CategoryList title="Shop by categoryf" id={2} />
-            <SwiperProduct />
+            <SwiperProduct id={54}/>
             <Collection />
             <Category pageSize={4} currentPage={1} id={53}/>
-            <SwiperHint />
             <Recommend />
+            <Category pageSize={4} currentPage={1} id={55}/>
+            <SwiperHint />
             <EntranceList />
             </div>
         )
