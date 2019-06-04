@@ -1,4 +1,4 @@
-query category($id: Int!, $pageSize: Int!, $currentPage: Int!, $onServer: Boolean!) {
+query category($id: Int!) {
         category(id: $id) {
             id
             description
@@ -9,7 +9,7 @@ query category($id: Int!, $pageSize: Int!, $currentPage: Int!, $onServer: Boolea
                 id
                 name
             }
-            products(pageSize: $pageSize, currentPage: $currentPage) {
+            products {
                 items {
                     id
                     name
@@ -42,8 +42,5 @@ query category($id: Int!, $pageSize: Int!, $currentPage: Int!, $onServer: Boolea
                 }
                 total_count
             }
-            meta_title @include(if: $onServer)
-            meta_keywords @include(if: $onServer)
-            meta_description @include(if: $onServer)
         }
     }

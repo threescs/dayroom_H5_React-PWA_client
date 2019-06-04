@@ -10,6 +10,8 @@ class CategoryContent extends Component {
         const items = data ? data.category.products.items : null;
         const title = data ? data.category.description : null;
         const categoryTitle = data ? data.category.name : null;
+        const categoryImg = data ? data.category.custom_image_mobile : null;
+        const categoryTab = data ? data.category.children : null;
         return (
             <article className={classes.root}>
                 <h1 className={classes.title}>
@@ -19,8 +21,22 @@ class CategoryContent extends Component {
                             __html: title
                         }}
                     />
-                    <div className={classes.categoryTitle}>{categoryTitle}</div>
+                    <div className={classes.categoryBox}>
+                        <div className={classes.categoryBanner}>
+                            <img src={categoryImg} alt=''/>
+                        </div>
+                        <div className={classes.categoryTitle}>{categoryTitle}</div>
+                    </div>
                 </h1>
+                <div className={classes.slideMenu}>
+                    <ul className={classes.slideWraper}>
+                        {
+                            categoryTab.map(item => (
+                                <li key={item.id} className={classes.munuItem}>{item.name}</li>
+                            ))
+                        }
+                    </ul>
+                </div>
                 <section className={classes.gallery}>
                     <Gallery data={items} title={title} pageSize={pageSize} />
                 </section>

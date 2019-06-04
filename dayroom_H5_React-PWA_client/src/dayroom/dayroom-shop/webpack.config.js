@@ -12,7 +12,7 @@ const {
         PWADevServer
     }
 } = require('@magento/pwa-buildpack');
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin'); //压缩js
 const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 const themePaths = {
@@ -225,7 +225,7 @@ module.exports = async function(env) {
             })
         ],
         optimization: {
-            splitChunks: {
+            splitChunks: { // 代码拆分
                 cacheGroups: {
                     vendor: {
                         test: new RegExp(

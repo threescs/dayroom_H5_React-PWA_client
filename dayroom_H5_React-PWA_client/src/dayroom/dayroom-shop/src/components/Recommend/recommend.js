@@ -13,7 +13,7 @@ import Instagram from 'react-feather/dist/icons/instagram';
 import Youtube from 'react-feather/dist/icons/youtube';
 import Play from 'react-feather/dist/icons/play';
 import Close from 'react-feather/dist/icons/x';
-
+import LazyLoad from 'react-lazyload';
 
 
 
@@ -69,6 +69,7 @@ class Recommend extends Component {
     return (
 
       <section className="social-media-container">
+        <LazyLoad height={200} once={true}>
         <h2 className="social-media__title">{data.headerTitle}</h2>
 
         <SwiperContainer settings={settings}>
@@ -113,10 +114,10 @@ class Recommend extends Component {
               <Link to={this.state.productLink} className="procut-link">
                 <img src={this.state.productPic} alt="" />
               </Link>
-
             </div>
           </div>
         </div>
+        </LazyLoad>
       </section>
     )
   }

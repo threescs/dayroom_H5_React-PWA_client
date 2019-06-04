@@ -9,6 +9,7 @@ import { loadingIndicator } from 'src/components/LoadingIndicator';
 import CategoryContent from './categoryContent';
 import defaultClasses from './category.css';
 import categoryQuery from 'src/queries/getCategory.graphql';
+
 class Category extends Component {
     static propTypes = {
         id: number,
@@ -25,7 +26,8 @@ class Category extends Component {
     // TODO: Should not be a default here, we just don't have
     // the wiring in place to map route info down the tree (yet)
     static defaultProps = {
-        id: 2
+        id: 3,
+        pageSize: 100
     };
 
     componentDidUpdate(prevProps) {
@@ -52,7 +54,7 @@ class Category extends Component {
             updateTotalPages: setPrevPageTotal,
             totalPages: prevPageTotal
         };
-        console.log(pageControl);
+
         return (
             <Query
                 query={categoryQuery}
@@ -64,6 +66,7 @@ class Category extends Component {
                 }}
             >
                 {({ loading, error, data }) => {
+                    console.log(data);
                     if (error) return <div>Data Fetch Error</div>;
                     // If our pagination component has mounted, then we have
                     // a total page count in the store, so we continue to render
@@ -88,11 +91,11 @@ class Category extends Component {
                     };
 
                     return (
-                            <CategoryContent
-                                classes={classes}
-                                pageControl={totalWrapper}
-                                data={data}
-                            />
+                        <CategoryContent
+                            classes={classes}
+                            pageControl={totalWrapper}
+                            data={data}
+                        />
                     );
                 }}
             </Query>

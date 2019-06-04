@@ -81,8 +81,8 @@ const datas= {
           {
             "id": 8,
             "name": "Home & Living",
-            "url_key": "gadgets",
-            "url_path": "gadgets",
+            "url_key": "gadgets1",
+            "url_path": "gadgets1",
             "children_count": "13",
             "path": "1/2/8",
             "image": null,
@@ -100,8 +100,8 @@ const datas= {
           {
             "id": 9,
             "name": "HOT",
-            "url_key": "gadgets",
-            "url_path": "gadgets",
+            "url_key": "gadgets2",
+            "url_path": "gadgets2",
             "children_count": "13",
             "path": "1/2/8",
             "image": null,
