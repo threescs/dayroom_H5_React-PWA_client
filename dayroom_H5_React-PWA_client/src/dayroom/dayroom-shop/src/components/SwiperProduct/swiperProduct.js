@@ -22,12 +22,14 @@ class SwiperProduct extends Component {
             typeof small_image === 'object' ? small_image.url : small_image
     };
   }
-  
+
   render(){
     const settings = {
-      thumbs:false
+      thumbs:false,
+      slidesPerGroup: 2,
+      // spaceBetween: 15
     };
-    
+
     return (
             <Query
                 query={categoryQuery}
@@ -41,13 +43,14 @@ class SwiperProduct extends Component {
                 {({ data }) => {
                   console.log(data);
                   const produtItem = data ? data.category.products.items : null;
+                  console.log(produtItem);
                   const categoryTitle = data ? data.category.name : null;
                   return (
                     <div className="product-banner">
                       <div className="product-title">{categoryTitle}</div>
                       <SwiperContainer className="swiper-gallery" settings={settings} >
                           {
-                            produtItem.map((item)=>(
+                            produtItem.map(item => (
                               <SwiperSlide key={item.id}>
                                 <GalleryItem item={this.mapGalleryItem(item)} />
                               </SwiperSlide>

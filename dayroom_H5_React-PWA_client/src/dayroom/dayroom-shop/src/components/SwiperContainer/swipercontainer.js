@@ -39,7 +39,9 @@ class SwiperContainer extends Component{
         pagination:{
           el:'.swiper-pagination',
           clickable:true
-        }
+        },
+        slidesPerGroup: settings.slidesPerGroup || 1,
+        spaceBetween : settings.spaceBetween || 0
       })
     }
   }
