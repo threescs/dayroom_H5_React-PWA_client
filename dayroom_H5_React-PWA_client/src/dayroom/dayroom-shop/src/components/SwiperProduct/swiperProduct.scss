@@ -2,7 +2,7 @@
   width: 100%;
   overflow: hidden;
   margin-bottom: 1.875rem;
-  padding: 0 1rem;
+  padding: 0 .68rem;
   .product-title {
     font-size: 1rem;
     letter-spacing: 0;
@@ -18,10 +18,13 @@
     justify-content: center;
     align-content: center;
     color: #fff;
+    padding-bottom: 2rem;
     .swiper-slide {
       display: flex;
-      // margin-right: .625rem;
       width: 50% !important;
+      padding-right: 5px;
+      padding-left: 5px;
+
     }
     .swiper-pagination-bullets {
       bottom: 0;
