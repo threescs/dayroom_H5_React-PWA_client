@@ -40,9 +40,7 @@ class SwiperProduct extends Component {
                 }}
             >
                 {({ data }) => {
-                  console.log(data);
                   const produtItem = data ? data.category.products.items : null;
-                  console.log(produtItem);
                   const categoryTitle = data ? data.category.name : null;
                   return (
                     <div className="product-banner">

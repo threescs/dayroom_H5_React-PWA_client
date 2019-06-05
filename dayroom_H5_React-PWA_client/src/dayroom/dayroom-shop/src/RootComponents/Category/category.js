@@ -26,8 +26,7 @@ class Category extends Component {
     // TODO: Should not be a default here, we just don't have
     // the wiring in place to map route info down the tree (yet)
     static defaultProps = {
-        id: 3,
-        pageSize: 100
+        id: 3
     };
 
     componentDidUpdate(prevProps) {
@@ -47,7 +46,6 @@ class Category extends Component {
             setCurrentPage,
             setPrevPageTotal
         } = this.props;
-
         const pageControl = {
             currentPage: currentPage,
             setPage: setCurrentPage,
@@ -66,7 +64,6 @@ class Category extends Component {
                 }}
             >
                 {({ loading, error, data }) => {
-                    console.log(data);
                     if (error) return <div>Data Fetch Error</div>;
                     // If our pagination component has mounted, then we have
                     // a total page count in the store, so we continue to render

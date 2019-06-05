@@ -70,7 +70,6 @@ class GalleryItem extends Component {
         }
 
         const { name, price, url_key, configurable_options } = item;
-        console.log(item);
         const productLink = `/${url_key}${productUrlSuffix}`;
         // let colorLength; 
         // if (configurable_options) {
