@@ -69,17 +69,29 @@ class GalleryItem extends Component {
             );
         }
 
-        const { name, price, url_key } = item;
+        const { name, price, url_key, configurable_options } = item;
         const productLink = `/${url_key}${productUrlSuffix}`;
-
+        // let colorLength; 
+        // if (configurable_options) {
+        //     colorLength = configurable_options[0].values ? configurable_options[0].values.length + 1 : 0;
+        // } else {
+        //     colorLength = 0;
+        // }
         return (
             <div className={classes.root}>
                 <Link to={resourceUrl(productLink)} className={classes.images}>
                     {this.renderImagePlaceholder()}
                     {this.renderImage()}
                 </Link>
+                {/* {
+                    Boolean(colorLength) ? (
+                        <div className={classes.colors}>
+                            <div className={classes.colormsg}>{colorLength} colors</div>
+                        </div>
+                    ) : ('')
+                } */}
                 <div className={classes.colors}>
-                    <div className={classes.colormsg}>2 colors</div>
+                    <div className={classes.colormsg}>3 colors</div>
                 </div>
                 <Link to={resourceUrl(productLink)} className={classes.name}>
                     <span>{name}</span>

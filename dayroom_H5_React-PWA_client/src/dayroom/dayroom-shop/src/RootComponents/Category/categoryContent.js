@@ -5,8 +5,15 @@ import Pagination from 'src/components/Pagination';
 import defaultClasses from './category.css';
 
 class CategoryContent extends Component {
+    constructor(){
+        super()
+        this.state = { 
+            tabIndex : 0
+        }
+    }
     render() {
         const { classes, pageControl, data, pageSize } = this.props;
+        console.log(pageControl);
         const items = data ? data.category.products.items : null;
         const title = data ? data.category.description : null;
         const categoryTitle = data ? data.category.name : null;
@@ -31,8 +38,8 @@ class CategoryContent extends Component {
                 <div className={classes.slideMenu}>
                     <ul className={classes.slideWraper}>
                         {
-                            categoryTab.map(item => (
-                                <li key={item.id} className={classes.munuItem}>{item.name}</li>
+                            categoryTab.map( (item, index) => (
+                                <li key={item.id} className={classes.munuItem} onClick={() => {this.setState({tabIndex: index});}} style={{color: (index===this.state.tabIndex) ? '#333' : '#999'}}>{item.name}</li>
                             ))
                         }
                     </ul>

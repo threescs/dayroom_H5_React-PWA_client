@@ -1,0 +1,21 @@
+.slideMenu {
+    display: block;
+    width: 100%;
+    padding-top: .625rem;
+    overflow-x: hidden;
+}
+.slideWraper {
+    white-space: nowrap;
+    transition: all .3s cubic-bezier(.6,.1,1,.18);
+    overflow-x: auto;
+    padding-bottom: 1.25rem;
+}
+.munuItem {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1rem;
+    color: #999;
+    padding-left: .625rem;
+    padding-right: .625rem;
+    text-transform: capitalize;
+}

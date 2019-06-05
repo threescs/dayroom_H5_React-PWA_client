@@ -30,6 +30,18 @@ workbox.routing.registerRoute(
         ]
     })
 );
+workbox.routing.registerRoute(
+    new RegExp('https://storage\.googleapis\.com/'),
+    new workbox.strategies.StaleWhileRevalidate({
+        cacheName: 'googlelog',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxEntries: 60,
+                maxAgeSeconds: thirtyDays // 30 Days
+            })
+        ]
+    })
+);
 
 workbox.routing.registerRoute(
     /\.(?:png|gif|jpg|jpeg|svg)$/,

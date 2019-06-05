@@ -131,10 +131,11 @@ class Pagination extends Component {
 
     setPage = (pageNumber, shouldReplace = false) => {
         const { history, location } = this.props;
+        
         const { search } = location;
         const queryParams = new URLSearchParams(search);
         const method = shouldReplace ? 'replace' : 'push';
-
+        console.log(history, queryParams);
         queryParams.set('page', pageNumber);
         history[method]({ search: queryParams.toString() });
     };
