@@ -9,7 +9,6 @@ import { loadingIndicator } from 'src/components/LoadingIndicator';
 import CategoryContent from './categoryContent';
 import defaultClasses from './category.css';
 import categoryQuery from 'src/queries/getCategory.graphql';
-
 class Category extends Component {
     static propTypes = {
         id: number,
@@ -27,7 +26,6 @@ class Category extends Component {
     // the wiring in place to map route info down the tree (yet)
     static defaultProps = {
         id: 3,
-        pageSize: 100
     };
 
     componentDidUpdate(prevProps) {
@@ -36,7 +34,6 @@ class Category extends Component {
             window.scrollTo(0, 0);
         }
     }
-
     render() {
         const {
             id,
@@ -47,7 +44,6 @@ class Category extends Component {
             setCurrentPage,
             setPrevPageTotal
         } = this.props;
-
         const pageControl = {
             currentPage: currentPage,
             setPage: setCurrentPage,
