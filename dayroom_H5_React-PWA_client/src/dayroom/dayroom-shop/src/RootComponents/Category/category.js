@@ -9,8 +9,6 @@ import { loadingIndicator } from 'src/components/LoadingIndicator';
 import CategoryContent from './categoryContent';
 import defaultClasses from './category.css';
 import categoryQuery from 'src/queries/getCategory.graphql';
-import getQueryParameterValue from 'src/util/getQueryParameterValue';
-
 class Category extends Component {
     constructor(){
         super()
@@ -35,32 +33,22 @@ class Category extends Component {
     static defaultProps = {
         id: 3
     };
-    setPage = (pageNumber, shouldReplace = false) => {
-        const { history, location } = this.props;
-        
-        const { search } = location;
-        const queryParams = new URLSearchParams(search);
-        console.log(queryParams);
-        const method = shouldReplace ? 'replace' : 'push';
-        queryParams.set('id', pageNumber);
-        history[method]({ search: queryParams.toString() });
-    };
-    getId() {
-        const id = getQueryParameterValue({location:undefined,queryParameter:'id'});
-        return id || 7;
-    }
-    getCurrentPage() {
-        const page = getQueryParameterValue({location:undefined,queryParameter:'page'});
-        return page && page <= this.props.prevPageTotal?page:1; 
-    }
     componentDidUpdate(prevProps) {
         // If the current page has changed, scroll back up to the top.
         if (this.props.currentPage !== prevProps.currentPage) {
             window.scrollTo(0, 0);
         }
     }
+    // shouldComponentUpdate(nextProps) {
+    //     return this.props.id !== nextProps.id
+    // }
     componentWillReceiveProps(nextProps) {
-       console.log(nextProps);
+        return this.props.id !== nextProps.id
+    //    if(this.props.id === nextProps.id) {
+    //        console.log('id没改变, 该tab组件无需从新渲染');
+    //    } else {
+    //        console.log('id改变, 应该重新渲染')
+    //    }
        }
     render() {
         const {
@@ -72,6 +60,7 @@ class Category extends Component {
             setCurrentPage,
             setPrevPageTotal
         } = this.props;
+        console.log(setCurrentPage);
         const pageControl = {
             currentPage: currentPage,
             setPage: setCurrentPage,
@@ -84,8 +73,8 @@ class Category extends Component {
                 variables={{
                     id: Number(id),
                     onServer: false,
-                    pageSize: 6,
-                    currentPage: this.getCurrentPage()
+                    pageSize: 50,
+                    currentPage: Number(currentPage)
                 }}
             >
                 {({ loading, error, data }) => {
@@ -114,15 +103,6 @@ class Category extends Component {
 
                     return (
                     <div>
-                        {/* <div className={classes.slideMenu}>
-                            <ul className={classes.slideWraper}>
-                                {
-                                    data.category.children.map( (item, index) => (
-                                        <li key={item.id} className={classes.munuItem} onClick={() => {this.setPage(item.id)}} style={{color: (index===this.state.tabIndex) ? '#333' : '#999'}}>{item.name}</li>
-                                    ))
-                                }
-                            </ul>
-                        </div> */}
                          <CategoryContent
                             classes={classes}
                             pageControl={totalWrapper}
