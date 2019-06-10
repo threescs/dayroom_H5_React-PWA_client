@@ -7,7 +7,6 @@
  */
 const log = store => next => action => {
     const result = next(action);
-
     console.groupCollapsed(action.type);
     console.group('payload');
     console.log(action.payload);

@@ -14,7 +14,7 @@ export default class CMS extends Component {
             <div>
             <TopBanner />
             <CategoryList title="Shop by categoryf" id={2} />
-            <SwiperProduct id={54}/>
+            <SwiperProduct />
             <Collection />
             <Category pageSize={4} currentPage={1} id={53}/>
             <Recommend />

@@ -135,7 +135,6 @@ class Pagination extends Component {
         const { search } = location;
         const queryParams = new URLSearchParams(search);
         const method = shouldReplace ? 'replace' : 'push';
-        console.log(history, queryParams);
         queryParams.set('page', pageNumber);
         history[method]({ search: queryParams.toString() });
     };
@@ -183,7 +182,6 @@ class Pagination extends Component {
                 queryParameter: 'page'
             })
         );
-
         // if the page in the query string doesn't match client state
         // update client state
         if (queryPage !== currentPage) {
