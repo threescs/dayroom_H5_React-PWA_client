@@ -15,7 +15,9 @@ class TopBanner extends Component {
 
   render(){
     const settings = {
-      thumbs:true
+      thumbs:true,
+      effect: 'fade',
+      pagination: true
     };
 
     return (
