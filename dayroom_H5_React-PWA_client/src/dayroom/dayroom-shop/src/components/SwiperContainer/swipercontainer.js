@@ -19,27 +19,39 @@ class SwiperContainer extends Component{
     if (settings && settings.thumbs){
       var topBannerPicSwiper = new Swiper(this.refs.container,{
         loop:true,
-        pagination:{
-          el:'.swiper-pagination',
-          clickable:true
-        },
+        loopedSlides: settings.loopedSlides || 1,
+        pagination: settings.pagination?  {
+            el:'.swiper-pagination',
+            clickable:true
+          }:{},
+        // pagination:{
+        //   el:'.swiper-pagination',
+        //   clickable:true
+        // },
         thumbs:{
           swiper:{
             el:this.refs.thumbs,
-            slidePerView:1,
+            slidesPerView: settings.slidesPerView || "auto",
             loop:true,
-            effect:'fade'
+            loopedSlides: settings.loopedSlides || 1,
+            effect: settings.effect || 'slide',
+            watchSlidesVisibility: settings.watchSlidesVisibility || false,
+            watchSlidesProgress: settings.watchSlidesProgress || false,
+            freeMode: settings.freeMode || false,
           }
         }
       })
     }else{
       var topBannerPicSwiper = new Swiper(this.refs.container,{
-        slidesPerView: "auto",
+        slidesPerView: settings.slidesPerView || "auto",
         loop:true,
-        pagination:{
-          el:'.swiper-pagination',
-          clickable:true
-        },
+        watchSlidesVisibility: settings.watchSlidesVisibility || false,
+        watchSlidesProgress: settings.watchSlidesProgress || false,
+        pagination: settings.pagination || {},
+        // {
+        //   el:'.swiper-pagination',
+        //   clickable:true
+        // }
         slidesPerGroup: settings.slidesPerGroup || 1,
         spaceBetween : settings.spaceBetween || 0
       })

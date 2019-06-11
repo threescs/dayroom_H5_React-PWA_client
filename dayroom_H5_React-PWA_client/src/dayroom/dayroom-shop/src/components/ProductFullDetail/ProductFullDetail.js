@@ -8,15 +8,23 @@ import classify from 'parentSrc/classify';
 import { connect } from 'parentSrc/drivers';
 import Button from 'src/components/Button';
 import { loadingIndicator } from 'parentComponents/LoadingIndicator';
-import Carousel from 'parentComponents/ProductImageCarousel';
+// import Carousel from 'parentComponents/ProductImageCarousel';
 import Quantity from 'parentComponents/ProductQuantity';
-import RichText from 'parentComponents/RichText';
+// import RichText from 'parentComponents/RichText';
 import defaultClasses from './productFullDetail.css';
 import appendOptionsToPayload from 'parentSrc/util/appendOptionsToPayload';
 import findMatchingVariant from 'parentSrc/util/findMatchingProductVariant';
 import isProductConfigurable from 'parentSrc/util/isProductConfigurable';
 import Accordion from 'src/components/Accordion'
 import Category from 'src/components/Category';
+
+import SwiperContainer from "src/components/SwiperContainer";
+import SwiperSlide from "src/components/SwiperSlide";
+
+// import { resourceUrl } from 'parentSrc/drivers';
+import { transparentPlaceholder } from 'parentSrc/shared/images';
+
+import  "./productFullDetail.scss"
 
 const Options = React.lazy(() => import('parentComponents/ProductOptions'));
 
@@ -196,12 +204,14 @@ class ProductFullDetail extends Component {
         const { classes, isAddingItem, product } = props;
         const { regularPrice, minimalPrice } = product.price;
 
+        console.log('mediaGalleryEntries:',mediaGalleryEntries);
         // We want this key to change whenever mediaGalleryEntries changes.
         // Make it dependent on a unique value in each entry (file),
         // and the order.
-        const carouselKey = mediaGalleryEntries.reduce((fullKey, entry) => {
-            return `${fullKey},${entry.file}`;
-        }, '');
+
+        // const carouselKey = mediaGalleryEntries.reduce((fullKey, entry) => {
+        //     return `${fullKey},${entry.file}`;
+        // }, '');
         const savePrice = (regularPrice.amount.value - minimalPrice.amount.value).toFixed(2);
         const saveFixed = ((savePrice / regularPrice.amount.value) * 100 ).toFixed(0) + '%';
         const afferPrice = ((minimalPrice.amount.value) / 4).toFixed(2);
@@ -250,6 +260,16 @@ class ProductFullDetail extends Component {
               ]
             }
           ];
+
+        const settings = {
+            thumbs:true,
+            slidesPerView: 3.5,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            freeMode: true,
+            loopedSlides: 5
+        }
+
         return (
             <Form className={classes.root}>
                 {/* <section className={classes.title}>
@@ -264,7 +284,30 @@ class ProductFullDetail extends Component {
                     </p>
                 </section> */}
                 <section className={classes.imageCarousel}>
-                    <Carousel images={mediaGalleryEntries} key={carouselKey} />
+                    {/* <Carousel images={mediaGalleryEntries} key={carouselKey} /> */}
+                    {/* <DetailSwiper /> */}
+
+                    <SwiperContainer settings={settings}>
+                        <div className="swiper-wrapper">
+                            {
+                                mediaGalleryEntries.map(item=>(
+                                    <SwiperSlide>
+                                        {/* <img src={ item.file? resourceUrl( "https://cdn.dayroom.co/media/catalog/product" + item.file, { type: 'image-product'}):transparentPlaceholder} alt="" /> */}
+                                        <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
+                                    </SwiperSlide>
+                                ))
+                            }
+                        </div>
+                        <div className="swiper-wrapper">
+                            {
+                                mediaGalleryEntries.map(item=>(
+                                    <SwiperSlide>
+                                        <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
+                                    </SwiperSlide>
+                                ))
+                            }
+                        </div>
+                    </SwiperContainer>
                 </section>
                 {/* 商品名称/价格 start */}
                 <section className={classes.productBox}>
