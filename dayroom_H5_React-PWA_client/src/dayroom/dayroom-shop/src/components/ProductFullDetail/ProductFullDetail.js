@@ -286,28 +286,29 @@ class ProductFullDetail extends Component {
                 <section className={classes.imageCarousel}>
                     {/* <Carousel images={mediaGalleryEntries} key={carouselKey} /> */}
                     {/* <DetailSwiper /> */}
-
-                    <SwiperContainer settings={settings}>
-                        <div className="swiper-wrapper">
-                            {
-                                mediaGalleryEntries.map(item=>(
-                                    <SwiperSlide>
-                                        {/* <img src={ item.file? resourceUrl( "https://cdn.dayroom.co/media/catalog/product" + item.file, { type: 'image-product'}):transparentPlaceholder} alt="" /> */}
-                                        <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
-                                    </SwiperSlide>
-                                ))
-                            }
-                        </div>
-                        <div className="swiper-wrapper">
-                            {
-                                mediaGalleryEntries.map(item=>(
-                                    <SwiperSlide>
-                                        <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
-                                    </SwiperSlide>
-                                ))
-                            }
-                        </div>
-                    </SwiperContainer>
+                    <div className="detail-swiper-gallery">
+                        <SwiperContainer settings={settings} className="detail-swiper-gallery">
+                            <div className="swiper-wrapper">
+                                {
+                                    mediaGalleryEntries.map(item=>(
+                                        <SwiperSlide>
+                                            {/* <img src={ item.file? resourceUrl( "https://cdn.dayroom.co/media/catalog/product" + item.file, { type: 'image-product'}):transparentPlaceholder} alt="" /> */}
+                                            <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
+                                        </SwiperSlide>
+                                    ))
+                                }
+                            </div>
+                            <div className="swiper-wrapper">
+                                {
+                                    mediaGalleryEntries.map(item=>(
+                                        <SwiperSlide>
+                                            <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
+                                        </SwiperSlide>
+                                    ))
+                                }
+                            </div>
+                        </SwiperContainer>
+                    </div>
                 </section>
                 {/* 商品名称/价格 start */}
                 <section className={classes.productBox}>
