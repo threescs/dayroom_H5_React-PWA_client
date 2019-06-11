@@ -6,7 +6,7 @@ import { compose } from 'redux';
 
 import classify from 'parentSrc/classify';
 import { connect } from 'parentSrc/drivers';
-import Button from 'parentComponents/Button';
+import Button from 'src/components/Button';
 import { loadingIndicator } from 'parentComponents/LoadingIndicator';
 import Carousel from 'parentComponents/ProductImageCarousel';
 import Quantity from 'parentComponents/ProductQuantity';
@@ -15,6 +15,8 @@ import defaultClasses from './productFullDetail.css';
 import appendOptionsToPayload from 'parentSrc/util/appendOptionsToPayload';
 import findMatchingVariant from 'parentSrc/util/findMatchingProductVariant';
 import isProductConfigurable from 'parentSrc/util/isProductConfigurable';
+import Accordion from 'src/components/Accordion'
+import Category from 'src/components/Category';
 
 const Options = React.lazy(() => import('parentComponents/ProductOptions'));
 
@@ -192,7 +194,7 @@ class ProductFullDetail extends Component {
             props
         } = this;
         const { classes, isAddingItem, product } = props;
-        const { regularPrice } = product.price;
+        const { regularPrice, minimalPrice } = product.price;
 
         // We want this key to change whenever mediaGalleryEntries changes.
         // Make it dependent on a unique value in each entry (file),
@@ -200,10 +202,57 @@ class ProductFullDetail extends Component {
         const carouselKey = mediaGalleryEntries.reduce((fullKey, entry) => {
             return `${fullKey},${entry.file}`;
         }, '');
-
+        const savePrice = (regularPrice.amount.value - minimalPrice.amount.value).toFixed(2);
+        const saveFixed = ((savePrice / regularPrice.amount.value) * 100 ).toFixed(0) + '%';
+        const afferPrice = ((minimalPrice.amount.value) / 4).toFixed(2);
+        const descriptionData = [
+            {
+              id:0,
+              title:'Description',
+              sublists:[
+                {
+                  id:0,
+                  title: product.description,
+                  url:'javascript:;'
+                }
+              ]
+            },
+            {
+              id:1,
+              title:'Dimensions',
+              sublists:[
+                {
+                  id:0,
+                  title:'contact us',
+                  url:'javascript:;'
+                },
+                {
+                  id:1,
+                  title:'payment method',
+                  url:'javascript:;'
+                }
+              ]
+            },
+            {
+              id:3,
+              title:'Specifications',
+              sublists:[
+                {
+                  id:0,
+                  title:'Terms & Conditions',
+                  url:'javascript:;'
+                },
+                {
+                  id:1,
+                  title:'Privacy & Scurity policy',
+                  url:'javascript:;'
+                }
+              ]
+            }
+          ];
         return (
             <Form className={classes.root}>
-                <section className={classes.title}>
+                {/* <section className={classes.title}>
                     <h1 className={classes.productName}>
                         <span>{product.name}</span>
                     </h1>
@@ -213,15 +262,47 @@ class ProductFullDetail extends Component {
                             value={regularPrice.amount.value}
                         />
                     </p>
-                </section>
+                </section> */}
                 <section className={classes.imageCarousel}>
                     <Carousel images={mediaGalleryEntries} key={carouselKey} />
                 </section>
+                {/* 商品名称/价格 start */}
+                <section className={classes.productBox}>
+                    <div>
+                        <h1 className={classes.prodacutName}>{product.name}</h1>
+                    </div>
+                    <p className={classes.price}>
+                        <span className={classes.newPrice}>
+                        <Price
+                            currencyCode={minimalPrice.amount.currency}
+                            value={minimalPrice.amount.value}
+                        />
+                        </span>
+                        <span className={classes.oldPrice}>&nbsp;
+                        Reference Price
+                        <Price
+                            currencyCode={regularPrice.amount.currency}
+                            value={regularPrice.amount.value}
+                        />
+                        </span>
+                    </p>
+                    <p className={classes.savePrice}>
+                        You Save {savePrice} ({saveFixed})
+                    </p>
+                    <p className={classes.installPrice}>
+                    or 4 interest-free payments of A${afferPrice};
+                    </p>
+                    <div className={classes.amount}>
+                        <span className={classes.logo}></span>
+                        <span className={classes.afterpay}>Learn more</span>
+                    </div>
+                </section>
+                {/* 商品名称/价格 end*/}
                 <section className={classes.options}>{productOptions}</section>
                 <section className={classes.quantity}>
-                    <h2 className={classes.quantityTitle}>
+                    {/* <h2 className={classes.quantityTitle}>
                         <span>Quantity</span>
-                    </h2>
+                    </h2> */}
                     <Quantity
                         initialValue={this.state.quantity}
                         onValueChange={this.setQuantity}
@@ -233,21 +314,44 @@ class ProductFullDetail extends Component {
                         onClick={addToCart}
                         disabled={isAddingItem || isMissingOptions}
                     >
-                        <span>Cart</span>
+                        <span>Add to Cart</span>
+                    </Button>
+                    <Button
+                        priority="high"
+                        onClick={addToCart}
+                        disabled={isAddingItem || isMissingOptions}
+                    >
+                        <span>Buy It Now</span>
                     </Button>
                 </section>
-                <section className={classes.description}>
-                    <h2 className={classes.descriptionTitle}>
-                        <span>Product Description</span>
-                    </h2>
-                    <RichText content={product.description} />
+                <section className={classes.feature}>
+                    <div className={classes.containerBox}>
+                        <img className={classes.containerIcon} src={product.feature_1_icon} alt='' />
+                        <div className={classes.text}>{product.feature_1_text}</div>
+                    </div>
+                    <div className={classes.containerBox}>
+                        <img className={classes.containerIcon} src={product.feature_2_icon} alt='' />
+                        <div className={classes.text}>{product.feature_2_text}</div>
+                    </div>
+                    <div className={classes.containerBox}>
+                        <img className={classes.containerIcon} src={product.feature_3_icon} alt='' />
+                        <div className={classes.text}>{product.feature_3_text}</div>
+                    </div>
                 </section>
-                <section className={classes.details}>
+                <section className={classes.description}>
+                    <Accordion items={descriptionData}>
+                    </Accordion>
+                </section>
+                <section className={classes.recommend}>
+                    <h2 className={classes.titleTxt}>You May Also Like</h2>
+                    <Category pageSize={4} currentPage={1} id={55}/>
+                </section>
+                {/* <section className={classes.details}>
                     <h2 className={classes.detailsTitle}>
                         <span>SKU</span>
                     </h2>
                     <strong>{product.sku}</strong>
-                </section>
+                </section> */}
             </Form>
         );
     }

@@ -43,14 +43,12 @@ const makeOptimizedUrl = (path, { type, width } = {}) => {
     const { location } = window;
     const urlObject = new URL(path, location.href);
     const params = new URLSearchParams(urlObject.search);
-
     if (type) {
         if (!mediaBases.has(type)) {
             throw new Error(`Unrecognized media type ${type}`);
         }
 
         const mediaBase = mediaBases.get(type);
-
         // prepend media base if it isn't already part of the pathname
         if (!urlObject.pathname.includes(mediaBase)) {
             urlObject.pathname = joinUrls(mediaBase, urlObject.pathname);

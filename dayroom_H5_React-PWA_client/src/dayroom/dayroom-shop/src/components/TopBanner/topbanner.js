@@ -25,7 +25,7 @@ class TopBanner extends Component {
             {
               data.map((item)=>(
                 <SwiperSlide key={item.img}>
-                  <img src={item.src} alt=""/>
+                  <img className="slider-img" src={item.src} alt=""/>
                 </SwiperSlide>
               ))
             }

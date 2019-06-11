@@ -6,6 +6,9 @@
     width: 100%;
 
     &.swiper-gallery {
+      .slider-img {
+        width: 100%;
+      }
       .swiper-pagination {
         bottom: 10rem;
       }
@@ -13,10 +16,8 @@
 
     &.swiper-thumbs {
       width: 80%;
-      margin-left: 0;
-      margin-right: 0;
       transform: translateY(-10rem);
-
+      margin: 30px 0 0 0;
       .swiper-slide{
         display: flex;
         justify-content: center;
@@ -24,7 +25,7 @@
         width: 100%;
         color: #fff;
         padding: 30px 20px;
-        background: #fa0;
+        background: #ea9273;
         .title {
           font-family: 'Gibson-SemiBold';
           font-size: 24px;

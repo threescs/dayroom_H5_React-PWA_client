@@ -40,6 +40,7 @@ class SwiperProduct extends Component {
                 }}
             >
                 {({ data }) => {
+                 if(data) {
                   const produtItem = data ? data.category.products.items : null;
                   const categoryTitle = data ? data.category.name : null;
                   return (
@@ -56,7 +57,8 @@ class SwiperProduct extends Component {
                       </SwiperContainer>
                     </div>
                       )
-                    }}
+                 }
+                }}
            </Query>
     )
   }
