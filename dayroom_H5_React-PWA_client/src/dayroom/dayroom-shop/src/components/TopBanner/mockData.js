@@ -10,7 +10,7 @@ const data = [
         }
       },
       backgroundColor: '#7DA9A9',
-      src: 'https://cdn.dayroom.co/assets/home-collection-smart-home-gadgets.jpg',
+      src: 'https://storage.googleapis.com/img-au/banner/fatherday/fatherday-m.jpg',
     },
     {
       img:1,
@@ -22,7 +22,7 @@ const data = [
           url: 'https://dayroom.co/checkout'
         }
       },
-      src: 'https://cdn.dayroom.co/assets/home-collection-kitchen-tools.jpg',
+      src: 'https://storage.googleapis.com/img-au/banner/Gift-Voucher-Gift/Gift-Voucher-Gift-Aus-m.jpg',
     },
     {
       img:2,
@@ -34,7 +34,7 @@ const data = [
           url: 'https://dayroom.co/checkout'
         }
       },
-      src: 'https://cdn.dayroom.co/assets/home-collection-lighting.jpg',
+      src: 'https://storage.googleapis.com/img-au/banner/Christmasbannerhome-m.jpg',
     },
     {
       img:3,
@@ -46,20 +46,20 @@ const data = [
           url: 'https://dayroom.co/checkout'
         }
       },
-      src: 'https://cdn.dayroom.co/assets/home-collection-kitchen-appliances.jpg',
+      src: 'https://storage.googleapis.com/img-au/banner/banner4-home-m.jpg',
     },
-    {
-      img:4,
-      text:{
-        title: 'Share the Fun!<br>Gift Voucher Give Away',
-        subtitle: 'Excludes shipping and gift cards<br>Vouchers sent before 7/6/2019',
-        link: {
-          text: 'SHOP NOW',
-          url: 'https://dayroom.co/checkout'
-        }
-      },
-      src: 'https://cdn.dayroom.co/assets/home-collection-crafts-toys.jpg',
-    }
+    // {
+    //   img:4,
+    //   text:{
+    //     title: 'Share the Fun!<br>Gift Voucher Give Away',
+    //     subtitle: 'Excludes shipping and gift cards<br>Vouchers sent before 7/6/2019',
+    //     link: {
+    //       text: 'SHOP NOW',
+    //       url: 'https://dayroom.co/checkout'
+    //     }
+    //   },
+    //   src: 'https://cdn.dayroom.co/assets/home-collection-crafts-toys.jpg',
+    // }
   ]
 
   export default data;

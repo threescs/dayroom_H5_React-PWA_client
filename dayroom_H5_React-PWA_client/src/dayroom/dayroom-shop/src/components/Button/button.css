@@ -1,0 +1,65 @@
+.root {
+    composes: root from 'parentComponents/clickable.css';
+    background: #ea9273;
+    color: rgb(var(--color));
+    font-size: 0.75rem;
+    font-weight: 600;
+    height: 2.5rem;
+    /* min-width: 7.5rem; */
+    padding: 0 1rem;
+    transition-duration: 384ms;
+    transition-property: background-color, color;
+    transition-timing-function: var(--venia-anim-standard);
+    --color: var(--venia-text);
+    letter-spacing: .8px;
+    font-family: 'Gibson-Regular';
+    width: 48rem;
+    margin-right: 4%;
+}
+
+.filled {
+    color: white;
+}
+
+.root:hover {
+    --color: var(--venia-teal);
+}
+
+.root:focus {
+    box-shadow: 0 0 0 2px rgb(var(--venia-teal-light)),
+        0 0 0.5rem 2px rgba(var(--venia-teal), 0.2);
+    outline: none;
+    transition-duration: 128ms;
+    --color: var(--venia-teal);
+}
+
+.root:active {
+    transition-duration: 128ms;
+    --color: var(--venia-teal-dark);
+}
+
+.root:disabled {
+    pointer-events: none;
+    --color: var(--venia-grey-dark);
+}
+
+.content {
+    align-items: center;
+    display: inline-grid;
+    gap: 0.5rem;
+    grid-auto-flow: column;
+    justify-content: center;
+    justify-items: center;
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* derived classes */
+
+.root_normalPriority {
+    composes: root;
+}
+.root_highPriority {
+    composes: root filled;
+}

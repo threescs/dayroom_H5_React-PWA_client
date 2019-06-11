@@ -62,6 +62,7 @@ class GalleryItem extends Component {
         const { classes, item } = this.props;
 
         if (!item) {
+            console.log('进来了');
             return (
                 <ItemPlaceholder classes={classes}>
                     {this.renderImagePlaceholder()}
@@ -139,17 +140,17 @@ class GalleryItem extends Component {
      */
     renderImage = () => {
         const { classes, item } = this.props;
-
         if (!item) {
             return null;
         }
 
         const { small_image, name } = item;
+        const src = small_image ? 'https://cdn.dayroom.co/media/catalog/product' + small_image : transparentPlaceholder
         return (
             <img
                 className={classes.image}
                 // 图片cdn暂时更改
-                src={ 'https://cdn.dayroom.co/media/catalog/product' + small_image}
+                src={src}
                 // src={resourceUrl(small_image, {
                 //     type: 'image-product',
                 //     width: imageWidth

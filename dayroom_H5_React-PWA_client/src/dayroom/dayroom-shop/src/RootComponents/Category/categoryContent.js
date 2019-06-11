@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classify from 'src/classify';
 import Gallery from 'src/components/Gallery';
 import Pagination from 'src/components/Pagination';
+import { loadingIndicator } from 'src/components/LoadingIndicator';
 import defaultClasses from './category.css';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -79,6 +80,10 @@ class CategoryContent extends Component {
                 }}
             >
                 {({ loading, error, data }) => {
+                    if (loading)
+                    return (
+                        loadingIndicator
+                    );
                     return (
                         <div>
                             <section className={classes.gallery}>
