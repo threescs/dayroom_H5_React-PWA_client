@@ -68,7 +68,7 @@ class CategoryTile extends Component {
         return (
             <Link
                 className={classes.root}
-                to={`/${item.url_key}${categoryUrlSuffix}`}
+                to={`/${item.url_key}`}
                 style={bgColor}
             >
                 <span className={classes.imageWrapper} style={style}>

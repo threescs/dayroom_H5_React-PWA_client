@@ -10,12 +10,6 @@ import CategoryContent from './categoryContent';
 import defaultClasses from './category.css';
 import categoryQuery from 'src/queries/getCategory.graphql';
 class Category extends Component {
-    constructor(){
-        super()
-        this.state = { 
-            tabIndex : 0
-        }
-    }
     static propTypes = {
         id: number,
         classes: shape({
@@ -31,25 +25,15 @@ class Category extends Component {
     // TODO: Should not be a default here, we just don't have
     // the wiring in place to map route info down the tree (yet)
     static defaultProps = {
-        id: 3
+        id: 3,
     };
+
     componentDidUpdate(prevProps) {
         // If the current page has changed, scroll back up to the top.
         if (this.props.currentPage !== prevProps.currentPage) {
             window.scrollTo(0, 0);
         }
     }
-    // shouldComponentUpdate(nextProps) {
-    //     return this.props.id !== nextProps.id
-    // }
-    componentWillReceiveProps(nextProps) {
-        return this.props.id !== nextProps.id
-    //    if(this.props.id === nextProps.id) {
-    //        console.log('id没改变, 该tab组件无需从新渲染');
-    //    } else {
-    //        console.log('id改变, 应该重新渲染')
-    //    }
-       }
     render() {
         const {
             id,
@@ -60,13 +44,13 @@ class Category extends Component {
             setCurrentPage,
             setPrevPageTotal
         } = this.props;
-        console.log(setCurrentPage);
         const pageControl = {
             currentPage: currentPage,
             setPage: setCurrentPage,
             updateTotalPages: setPrevPageTotal,
             totalPages: prevPageTotal
         };
+
         return (
             <Query
                 query={categoryQuery}
@@ -78,6 +62,7 @@ class Category extends Component {
                 }}
             >
                 {({ loading, error, data }) => {
+                    console.log(data);
                     if (error) return <div>Data Fetch Error</div>;
                     // If our pagination component has mounted, then we have
                     // a total page count in the store, so we continue to render
@@ -102,13 +87,11 @@ class Category extends Component {
                     };
 
                     return (
-                    <div>
-                         <CategoryContent
+                        <CategoryContent
                             classes={classes}
                             pageControl={totalWrapper}
                             data={data}
                         />
-                    </div>
                     );
                 }}
             </Query>
