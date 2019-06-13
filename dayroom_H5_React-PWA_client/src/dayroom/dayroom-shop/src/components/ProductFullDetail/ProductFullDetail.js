@@ -293,6 +293,7 @@ class ProductFullDetail extends Component {
                                     mediaGalleryEntries.map(item=>(
                                         <SwiperSlide>
                                             {/* <img src={ item.file? resourceUrl( "https://cdn.dayroom.co/media/catalog/product" + item.file, { type: 'image-product'}):transparentPlaceholder} alt="" /> */}
+
                                             <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
                                         </SwiperSlide>
                                     ))
@@ -302,6 +303,7 @@ class ProductFullDetail extends Component {
                                 {
                                     mediaGalleryEntries.map(item=>(
                                         <SwiperSlide>
+                                            <div className="border-bottom"></div>
                                             <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
                                         </SwiperSlide>
                                     ))
@@ -384,6 +386,7 @@ class ProductFullDetail extends Component {
                 </section>
                 <section className={classes.description}>
                     <Accordion items={descriptionData}>
+
                     </Accordion>
                 </section>
                 <section className={classes.recommend}>

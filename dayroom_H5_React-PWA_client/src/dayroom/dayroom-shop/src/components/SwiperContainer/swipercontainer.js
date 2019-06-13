@@ -47,7 +47,10 @@ class SwiperContainer extends Component{
         loop:true,
         watchSlidesVisibility: settings.watchSlidesVisibility || false,
         watchSlidesProgress: settings.watchSlidesProgress || false,
-        pagination: settings.pagination || {},
+        pagination: settings.pagination?  {
+          el:'.swiper-pagination',
+          clickable:true
+        }:{},
         // {
         //   el:'.swiper-pagination',
         //   clickable:true
