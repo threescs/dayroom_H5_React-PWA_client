@@ -35,14 +35,14 @@ class SwiperProduct extends Component {
                 variables={{
                     id: 54,
                     onServer: false,
-                    pageSize: 6,
+                    pageSize: 10,
                     currentPage: 1
                 }}
             >
-                {({ data }) => {
-                 if(data) {
-                  const produtItem = data ? data.category.products.items : null;
-                  const categoryTitle = data ? data.category.name : null;
+                {({ data, error }) => {
+                if (error) return (<div>Data Fetch Error</div>)
+                  const produtItem = data.category ? data.category.products.items : null;
+                  const categoryTitle = data.category ? data.category.name : null;
                   return (
                     <div className="product-banner">
                       <div className="product-title">{categoryTitle}</div>
@@ -57,7 +57,6 @@ class SwiperProduct extends Component {
                       </SwiperContainer>
                     </div>
                       )
-                 }
                 }}
            </Query>
     )

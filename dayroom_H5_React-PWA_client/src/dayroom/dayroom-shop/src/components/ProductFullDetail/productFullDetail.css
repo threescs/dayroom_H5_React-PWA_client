@@ -192,11 +192,11 @@
     font-size: .8rem;
 }
 .installPrice {
-    font-style: initial;
+    font-style: italic;
     font-size: .875rem;
 }
 .amount {
-    font-style: initial;
+    font-style: italic;
     font-size: .875rem;
 }
 .titleTxt {
@@ -224,4 +224,17 @@
     font-size: .875rem;
     color: #666;
     line-height: 1.5;
+}
+.shiping {
+    font-size: .75rem;
+    color: #999;
+    margin: .625rem auto 0;
+    width: 17.5rem;
+}
+.shipingIcon {
+    line-height: 1.6;
+}
+.icon {
+    width: 15px;
+    height: 12px;
 }

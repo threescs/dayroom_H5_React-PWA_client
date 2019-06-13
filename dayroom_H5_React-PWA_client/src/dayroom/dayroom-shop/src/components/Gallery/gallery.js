@@ -26,6 +26,9 @@ class Gallery extends Component {
         const hasData = Array.isArray(data) && data.length;
         const items = hasData ? data : emptyData;
         items.map(item => {
+            // if(item) {
+            //     item.colorsLength = 0;
+            // }
             if(item && item.media_gallery_entries) {
                 item.media_gallery_entries.forEach(itm => {
                     if(itm.types.includes('small_image')) {
@@ -33,6 +36,10 @@ class Gallery extends Component {
                     }
                 })
             }
+            // if(item && item.configurable_options) {
+            //     const colorsLength = item.configurable_options.values.length + 1;
+            //     item['colorsLength'] = colorsLength;
+            // }
         })
         return (
             <div className={classes.root}>

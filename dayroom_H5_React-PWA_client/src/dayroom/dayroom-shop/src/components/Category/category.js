@@ -52,7 +52,6 @@ class Category extends Component {
             updateTotalPages: setPrevPageTotal,
             totalPages: prevPageTotal
         };
-        console.log(pageControl);
         return (
             <Query
                 query={categoryQuery}
@@ -86,7 +85,6 @@ class Category extends Component {
                         ...pageControl,
                         totalPages: totalPages
                     };
-                    console.log(data);
                     return (
                             <CategoryContent
                                 classes={classes}

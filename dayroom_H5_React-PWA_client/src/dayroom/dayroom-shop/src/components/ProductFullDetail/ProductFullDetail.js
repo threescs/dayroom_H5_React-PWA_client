@@ -94,7 +94,7 @@ class ProductFullDetail extends Component {
     };
 
     setQuantity = quantity => this.setState({ quantity });
-
+    
     addToCart = () => {
         const { props, state } = this;
         const { optionSelections, quantity, optionCodes } = state;
@@ -114,12 +114,14 @@ class ProductFullDetail extends Component {
     };
 
     handleSelectionChange = (optionId, selection) => {
+        console.log(optionId, selection);
         this.setState(({ optionSelections }) => ({
             optionSelections: new Map(optionSelections).set(
                 optionId,
                 Array.from(selection).pop()
             )
         }));
+        console.log(this.state.optionSelections);
     };
 
     get fallback() {
@@ -130,7 +132,6 @@ class ProductFullDetail extends Component {
         const { fallback, handleSelectionChange, props } = this;
         const { configurable_options } = props.product;
         const isConfigurable = isProductConfigurable(props.product);
-
         if (!isConfigurable) {
             return null;
         }
@@ -141,6 +142,13 @@ class ProductFullDetail extends Component {
                     options={configurable_options}
                     onSelectionChange={handleSelectionChange}
                 />
+                {/* <select onSelect={handleSelectionChange}>
+                    {
+                        configurable_options[0].values.map(item => (
+                            <option value ={item.value_index} >{item.label}</option>
+                        ))
+                    }
+                </select> */}
             </Suspense>
         );
     }
@@ -203,8 +211,15 @@ class ProductFullDetail extends Component {
         } = this;
         const { classes, isAddingItem, product } = props;
         const { regularPrice, minimalPrice } = product.price;
-
-        console.log('mediaGalleryEntries:',mediaGalleryEntries);
+        const reURL = /^(https?|ftp|file):\/\/.+$/;
+        mediaGalleryEntries.map(item => {
+            if(item && item.file) {
+                if (!reURL.test(item.file)) {
+                    item.file = "https://cdn.dayroom.co/media/catalog/product" + item.file;
+                }
+                return item;
+            }
+        })
         // We want this key to change whenever mediaGalleryEntries changes.
         // Make it dependent on a unique value in each entry (file),
         // and the order.
@@ -272,17 +287,6 @@ class ProductFullDetail extends Component {
 
         return (
             <Form className={classes.root}>
-                {/* <section className={classes.title}>
-                    <h1 className={classes.productName}>
-                        <span>{product.name}</span>
-                    </h1>
-                    <p className={classes.productPrice}>
-                        <Price
-                            currencyCode={regularPrice.amount.currency}
-                            value={regularPrice.amount.value}
-                        />
-                    </p>
-                </section> */}
                 <section className={classes.imageCarousel}>
                     {/* <Carousel images={mediaGalleryEntries} key={carouselKey} /> */}
                     {/* <DetailSwiper /> */}
@@ -293,7 +297,7 @@ class ProductFullDetail extends Component {
                                     mediaGalleryEntries.map(item=>(
                                         <SwiperSlide>
                                             {/* <img src={ item.file? resourceUrl( "https://cdn.dayroom.co/media/catalog/product" + item.file, { type: 'image-product'}):transparentPlaceholder} alt="" /> */}
-                                            <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
+                                            <img src={ item.file ? item.file : transparentPlaceholder} alt="" />
                                         </SwiperSlide>
                                     ))
                                 }
@@ -302,7 +306,7 @@ class ProductFullDetail extends Component {
                                 {
                                     mediaGalleryEntries.map(item=>(
                                         <SwiperSlide>
-                                            <img src={ item.file? "https://cdn.dayroom.co/media/catalog/product" + item.file : transparentPlaceholder} alt="" />
+                                            <img src={ item.file ? item.file : transparentPlaceholder} alt="" />
                                         </SwiperSlide>
                                     ))
                                 }
@@ -367,6 +371,14 @@ class ProductFullDetail extends Component {
                     >
                         <span>Buy It Now</span>
                     </Button>
+                </section>
+                <section className={classes.shiping}>
+                    <p className={classes.shipingIcon}>
+                        <img className={classes.icon} src='https://storage.googleapis.com/picksmart-img-au/assets/icon-fly.png' alt=''/>
+                        Free shipping to Australia, US, UK and Canada</p>
+                    <p className={classes.shipingIcon}>
+                        <img className={classes.icon} src='https://storage.googleapis.com/picksmart-img-au/assets/icon-ship.png' alt=''/>
+                        14 days no hassle returns</p>
                 </section>
                 <section className={classes.feature}>
                     <div className={classes.containerBox}>

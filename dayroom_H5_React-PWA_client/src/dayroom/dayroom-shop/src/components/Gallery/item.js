@@ -62,7 +62,6 @@ class GalleryItem extends Component {
         const { classes, item } = this.props;
 
         if (!item) {
-            console.log('进来了');
             return (
                 <ItemPlaceholder classes={classes}>
                     {this.renderImagePlaceholder()}
@@ -70,7 +69,7 @@ class GalleryItem extends Component {
             );
         }
 
-        const { name, price, url_key, configurable_options } = item;
+        const { name, price, url_key, colorsLength } = item;
         const productLink = `/${url_key}${productUrlSuffix}`;
         // let colorLength; 
         // if (configurable_options) {
@@ -85,9 +84,9 @@ class GalleryItem extends Component {
                     {this.renderImage()}
                 </Link>
                 {/* {
-                    Boolean(colorLength) ? (
+                    Boolean(colorsLength) ? (
                         <div className={classes.colors}>
-                            <div className={classes.colormsg}>{colorLength} colors</div>
+                            <div className={classes.colormsg}>{colorsLength} colors</div>
                         </div>
                     ) : ('')
                 } */}
