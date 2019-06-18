@@ -46,7 +46,7 @@ class Accordion extends Component{
   }
 
   render(){
-    const { items } = this.props;
+    const { items,children } = this.props;
 
     return (
       <div className="accordion-container" ref="accordionContainer">
@@ -62,7 +62,17 @@ class Accordion extends Component{
                 <Icon src={ChevronRight} />
               </span>
             </h4>
-            <AccordionContent lists={item.sublists} />
+            <ul className="accordion-content__list">
+              {
+                item.sublists.map((subitem)=>(
+                  <li className="accordion-content__item" key={subitem.id}>
+                    <div dangerouslySetInnerHTML = {{ __html: subitem.content }}></div>
+                  </li>
+                ))
+              }
+            </ul>
+            {/* { children } */}
+            {/* <AccordionContent sublists={item.sublists} >{ children }</AccordionContent> */}
           </div>
         ))
       }
@@ -74,13 +84,13 @@ class Accordion extends Component{
 
 class AccordionContent extends Component{
   render(){
-    const { lists } = this.props;
+    const { sublists,children } = this.props;
     return (
       <ul className="accordion-content__list">
         {
-          lists.map((item)=>(
+          sublists.map((item)=>(
             <li className="accordion-content__item" key={item.id}>
-              <a href={item.url}>{item.title}</a>
+              { children }
             </li>
           ))
         }

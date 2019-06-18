@@ -85,15 +85,15 @@ class Navigation extends PureComponent {
     get footer() {
         const { classes } = this.props;
 
-        // return !this.props.isSignedIn ? (
-        //     <div className={classes.authBar}>
-        //         <Button priority="high" onClick={this.showSignInForm}>
-        //             Sign In
-        //         </Button>
-        //     </div>
-        // ) : (
-        //     <MyAccountMenuTrigger />
-        // );
+        return !this.props.isSignedIn ? (
+            <div className={classes.authBar}>
+                <Button priority="high" onClick={this.showSignInForm}>
+                    Sign In
+                </Button>
+            </div>
+        ) : (
+            <MyAccountMenuTrigger />
+        );
     }
 
     get signInForm() {

@@ -27,6 +27,7 @@ class SwiperProduct extends Component {
     const settings = {
       thumbs:false,
       slidesPerGroup: 2,
+      pagination: true
     };
     // const { id } = this.props;
     return (

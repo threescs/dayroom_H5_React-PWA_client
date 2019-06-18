@@ -121,7 +121,6 @@ class ProductFullDetail extends Component {
                 Array.from(selection).pop()
             )
         }));
-        console.log(this.state.optionSelections);
     };
 
     get fallback() {
@@ -237,7 +236,7 @@ class ProductFullDetail extends Component {
               sublists:[
                 {
                   id:0,
-                  title: product.description,
+                  content: '<div class="desc-value">' + product.description + '</div>',
                   url:'javascript:;'
                 }
               ]
@@ -306,6 +305,7 @@ class ProductFullDetail extends Component {
                                 {
                                     mediaGalleryEntries.map(item=>(
                                         <SwiperSlide>
+                                            <div className="border-bottom"></div>
                                             <img src={ item.file ? item.file : transparentPlaceholder} alt="" />
                                         </SwiperSlide>
                                     ))
@@ -396,6 +396,7 @@ class ProductFullDetail extends Component {
                 </section>
                 <section className={classes.description}>
                     <Accordion items={descriptionData}>
+
                     </Accordion>
                 </section>
                 <section className={classes.recommend}>

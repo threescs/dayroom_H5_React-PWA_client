@@ -8,16 +8,16 @@ import Accordion from 'src/components/Accordion'
 
 class FooterAccordion extends Component{
 
+
   render(){
-    const data = [
+    const items = [
       {
         id:0,
         title:'company info',
         sublists:[
           {
             id:0,
-            title:'our story',
-            url:'javascript:;'
+            content:"<a href='javascript:;'>our story</a>",
           }
         ]
       },
@@ -27,12 +27,12 @@ class FooterAccordion extends Component{
         sublists:[
           {
             id:0,
-            title:'contact us',
+            content:"<a href='javascript:;'>contact us</a>",
             url:'javascript:;'
           },
           {
             id:1,
-            title:'payment method',
+            content:"<a href='javascript:;'>payment method</a>",
             url:'javascript:;'
           }
         ]
@@ -43,23 +43,22 @@ class FooterAccordion extends Component{
         sublists:[
           {
             id:0,
-            title:'FQAs',
+            content:"<a href='javascript:;'>FQAs</a>",
             url:'javascript:;'
           },
           {
             id:1,
-            title:'Shipping Info',
+            content:"<a href='javascript:;'>Shipping Info</a>",
             url:'javascript:;'
           },
           {
             id:2,
-            title:'Return',
+            content:"<a href='javascript:;'>Return</a>",
             url:'javascript:;'
           },
           {
             id:3,
-            title:'Sitemap',
-            url:'javascript:;'
+            content:"<a href='javascript:;'>Sitemap</a>",
           }
         ]
       },
@@ -69,20 +68,18 @@ class FooterAccordion extends Component{
         sublists:[
           {
             id:0,
-            title:'Terms & Conditions',
-            url:'javascript:;'
+            content:"<a href='javascript:;'>Terms & Conditions</a>",
           },
           {
             id:1,
-            title:'Privacy & Scurity policy',
-            url:'javascript:;'
+            content:"<a href='javascript:;'>Privacy & Scurity policy</a>",
           }
+          // <a href='javascript:;'></a>
         ]
       }
     ];
     return (
-      <Accordion items={data}>
-      </Accordion>
+      <Accordion items={items}></Accordion>
     )
   }
 }

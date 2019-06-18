@@ -21,7 +21,8 @@ class CollectionItem extends Component {
 
   render(){
     const settings = {
-      thumbs:false
+      thumbs:false,
+      pagination: true
     };
     const { classes } = this.props;
     return (

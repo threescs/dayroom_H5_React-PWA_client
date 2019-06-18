@@ -61,7 +61,8 @@ class Recommend extends Component {
   render() {
 
     const settings = {
-      thumbs: false
+      thumbs: false,
+      pagination: true
     }
 
 
