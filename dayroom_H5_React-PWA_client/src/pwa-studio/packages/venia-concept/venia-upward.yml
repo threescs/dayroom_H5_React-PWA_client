@@ -25,6 +25,9 @@ response:
     - matches: request.url.pathname
       pattern: '^/$'
       use: appShell
+    - matches: request.url.pathname
+      pattern: '^/account'
+      use: accountSetting
   default: bundles
 
 # In dev and staging mode, the PWADevServer and Venia's server.js both declare
@@ -94,6 +97,19 @@ appShell:
         bundles: assetManifest.bundles
         urlResolver: urlResolver
         env: env
+
+accountSetting:
+    inline:
+        status: 200
+        headers:
+            inline:
+                content-type: 'text/html'
+        body:
+            engine: mustache
+            template: resource.template
+            provide:
+                bundles: assetManifest.bundles
+                isDevelopment: isDevelopment
 
 resource:
   when:

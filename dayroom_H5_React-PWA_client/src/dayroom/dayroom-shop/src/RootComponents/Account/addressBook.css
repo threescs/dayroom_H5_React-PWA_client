@@ -1,0 +1,64 @@
+.root {
+  font-family: Gibson;
+  padding:.625rem .9375rem 0;
+}
+.title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height:1.125rem;
+  border-bottom: 2px solid #999;
+  padding-bottom: .625rem;
+}
+
+.content {
+  margin-top: 1.25rem;
+}
+
+.contentItem {
+  margin-bottom: .625rem;
+}
+
+.subTitle {
+  font-size: .875rem;
+  font-weight: 600;
+  color: #95a9ca;
+  text-transform: uppercase;
+  letter-spacing: 0.1px;
+}
+
+.addressInfo {
+  padding-top: 0.625rem;
+  padding-bottom:0.3125rem;
+}
+
+.addressInfo address {
+  font-style: normal;
+  font-size: 14px;
+}
+.addressInfo p {
+  line-height: 1.5em;
+}
+
+.addressInfo p em {
+  font-size: 14px;
+}
+
+.actions {
+  margin-top:  0.3125rem;
+  margin-bottom:  0.3125rem;
+}
+
+.actions a {
+  color: #ea9273;
+  text-transform: capitalize;
+}
+
+.actions .button {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+  color: #fff;
+  background: #ea9273;
+  padding: .625rem;
+}
