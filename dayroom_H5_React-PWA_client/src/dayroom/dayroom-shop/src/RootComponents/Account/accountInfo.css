@@ -1,0 +1,33 @@
+.root {
+  font-family: Gibson;
+  padding:.625rem .9375rem 0;
+  margin-bottom: 1.5rem;
+}
+.title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height:1.125rem;
+  border-bottom: 2px solid #999;
+  padding-bottom: .625rem;
+}
+
+.content {
+  font-size: 14px;
+  margin-top: 1.25rem;
+}
+
+
+.actions {
+  margin-top: .625rem;
+
+}
+
+.actions a {
+  color: #ea9273;
+  text-decoration: underline;
+}
+
+.actions .edit {
+  margin-right: .625rem;
+}

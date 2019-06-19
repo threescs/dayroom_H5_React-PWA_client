@@ -26,8 +26,8 @@ response:
       pattern: '^/$'
       use: appShell
     - matches: request.url.pathname
-      pattern: '^/home'
-      use: userSetting
+      pattern: '^/account'
+      use: accountSetting
   default: bundles
 
 # In dev and staging mode, the PWADevServer and Venia's server.js both declare
@@ -98,7 +98,7 @@ appShell:
         urlResolver: urlResolver
         env: env
 
-userSetting:
+accountSetting:
     inline:
         status: 200
         headers:
@@ -106,7 +106,7 @@ userSetting:
                 content-type: 'text/html'
         body:
             engine: mustache
-            template: resource.template
+            template: './templates/category-shell.mst'
             provide:
                 bundles: assetManifest.bundles
                 isDevelopment: isDevelopment
