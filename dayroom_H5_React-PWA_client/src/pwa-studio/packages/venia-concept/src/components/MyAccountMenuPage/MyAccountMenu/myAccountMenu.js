@@ -21,6 +21,7 @@ class MyAccountMenu extends Component {
         return (
             <nav className={classes.list}>
                 <MenuItem.Link title="Purchase History" to="/" />
+                <MenuItem.Link title="My Account" to="/account" />
                 <MenuItem.Button
                     title={
                         <span className={classes.signOutTitle}>Sign Out</span>
