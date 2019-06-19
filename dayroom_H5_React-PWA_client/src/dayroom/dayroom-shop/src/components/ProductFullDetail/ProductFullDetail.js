@@ -222,7 +222,7 @@ class ProductFullDetail extends Component {
               sublists:[
                 {
                   id:0,
-                  title: product.description,
+                  content: product.description,
                   url:'javascript:;'
                 }
               ]
@@ -233,12 +233,12 @@ class ProductFullDetail extends Component {
               sublists:[
                 {
                   id:0,
-                  title:'contact us',
+                  content:'contact us',
                   url:'javascript:;'
                 },
                 {
                   id:1,
-                  title:'payment method',
+                  content:'payment method',
                   url:'javascript:;'
                 }
               ]
@@ -249,12 +249,12 @@ class ProductFullDetail extends Component {
               sublists:[
                 {
                   id:0,
-                  title:'Terms & Conditions',
+                  content:'Terms & Conditions',
                   url:'javascript:;'
                 },
                 {
                   id:1,
-                  title:'Privacy & Scurity policy',
+                  content:'Privacy & Scurity policy',
                   url:'javascript:;'
                 }
               ]
@@ -385,9 +385,9 @@ class ProductFullDetail extends Component {
                     </div>
                 </section>
                 <section className={classes.description}>
-                    <Accordion items={descriptionData}>
-
-                    </Accordion>
+                    <div className="product-accordion">
+                        <Accordion items={descriptionData}> </Accordion>
+                    </div>
                 </section>
                 <section className={classes.recommend}>
                     <h2 className={classes.titleTxt}>You May Also Like</h2>
