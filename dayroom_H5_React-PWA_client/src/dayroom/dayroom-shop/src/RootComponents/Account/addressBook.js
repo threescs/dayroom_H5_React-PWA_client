@@ -24,39 +24,29 @@ class AddressBook extends Component {
     })
   }
     render() {
-      const { classes } = this.props;
+      const { classes, addresses } = this.props;
       return (
         <div className={classes.root}>
           <h2 className={classes.title}>Address Book</h2>
           <div className={classes.content}>
-            <div className={classes.contentItem}>
-              <div className={classes.subTitle}>default billing address</div>
-              <div className={classes.addressInfo}>
-                <address>
-                  <p className={classes.name}>xiaoming</p>
-                  <p className={classes.addressDetail}>贝克街221号B</p>
-                  <p className={classes.addressCity}>Sydney,NAW,1523</p>
-                  <p className={classes.addressCountry}>Australia</p>
-                  <p className={classes.telephone}>T:15966332321</p>
-                  <p className={classes.status}><em>(selected)</em></p>
-                </address>
-                <p className={classes.actions}><a className={classes.edit} href="#">edit</a></p>
-              </div>
-            </div>
-            <div className={classes.contentItem}>
-              <div className={classes.subTitle}>default Shipping address</div>
-              <div className={classes.addressInfo}>
-                <address>
-                  <p className={classes.name}>xiaoming</p>
-                  <p className={classes.addressDetail}>贝克街221号B</p>
-                  <p className={classes.addressCity}>Sydney,NAW,1523</p>
-                  <p className={classes.addressCountry}>Australia</p>
-                  <p className={classes.telephone}>T:15966332321</p>
-                  <p className={classes.status}><em>(selected)</em></p>
-                </address>
-                <p className={classes.actions}><a className={classes.edit} href="#">edit</a></p>
-              </div>
-            </div>
+            {
+              addresses.map((item, index) => (
+                <div className={classes.contentItem} key={item.postcode}>
+                  <div className={classes.subTitle}>default billing address</div>
+                  <div className={classes.addressInfo}>
+                    <address>
+                      <p className={classes.name}>{item.firstname}{item.lastname}</p>
+                      <p className={classes.addressDetail}>{item.city},{item.region.region},{item.postcode}</p>
+                      <p className={classes.addressCity}>Sydney,NAW,1523</p>
+                      <p className={classes.addressCountry}>Australia</p>
+                      <p className={classes.telephone}>T:{item.telephone}</p>
+                      {/* <p className={classes.status}><em>(selected)</em></p> */}
+                    </address>
+                    <p className={classes.actions}><a className={classes.edit} href="#">edit</a></p>
+                  </div>
+                </div>
+              ))
+            }
           </div>
           <div className={classes.actions}><a href="#" className={classes.button}>add new address</a></div>
         </div>

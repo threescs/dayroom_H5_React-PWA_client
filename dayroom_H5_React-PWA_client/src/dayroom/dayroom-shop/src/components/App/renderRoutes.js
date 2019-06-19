@@ -10,9 +10,9 @@ import Account from 'src/RootComponents/Account';
 const renderRoutingError = props => <ErrorView {...props} />;
 const renderRoutes = () => (
     <Switch>
-        <Route exact path="/account" component={Account}/>
+        <Route exact path="/account" component={Account} />
         {/* <Route exact path="/search.html" component={Search} /> */}
-        {/* <Route exact path="/create-account" component={CreateAccountPage} /> */}
+        <Route exact path="/create-account" component={CreateAccountPage} />
         <Route render={() => <Page>{renderRoutingError}</Page>} />
     </Switch>
 );

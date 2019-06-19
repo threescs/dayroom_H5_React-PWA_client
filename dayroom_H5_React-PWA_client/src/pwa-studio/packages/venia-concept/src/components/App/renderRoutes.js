@@ -4,7 +4,6 @@ import { Page } from '@magento/peregrine';
 import ErrorView from 'src/components/ErrorView/index';
 import CreateAccountPage from 'src/components/CreateAccountPage/index';
 import Search from 'src/RootComponents/Search';
-
 const renderRoutingError = props => <ErrorView {...props} />;
 
 const renderRoutes = () => (

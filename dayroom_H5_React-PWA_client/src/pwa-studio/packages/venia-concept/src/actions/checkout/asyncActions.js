@@ -190,9 +190,10 @@ export const submitOrder = () =>
 
         let billing_address = await retrieveBillingAddress();
         const paymentMethod = await retrievePaymentMethod();
+        console.log(paymentMethod);
         const shipping_address = await retrieveShippingAddress();
         const shipping_method = await retrieveShippingMethod();
-
+        console.log(shipping_method);
         if (billing_address.sameAsShippingAddress) {
             billing_address = shipping_address;
         } else {
@@ -230,9 +231,9 @@ export const submitOrder = () =>
 
             // POST to payment-information to submit the payment details and billing address,
             // Note: this endpoint also actually submits the order.
-            const guestPaymentEndpoint = `/rest/V1/guest-carts/${cartId}/payment-information`;
+            const guestPaymentEndpoint = `/rest/default/V1/guest-carts/${cartId}/set-payment-information`;
             const authedPaymentEndpoint =
-                '/rest/V1/carts/mine/payment-information';
+                '/rest/default/V1/carts/mine/set-payment-information';
             const paymentEndpoint = user.isSignedIn
                 ? authedPaymentEndpoint
                 : guestPaymentEndpoint;
@@ -247,7 +248,7 @@ export const submitOrder = () =>
                         additional_data: {
                             payment_method_nonce: paymentMethod.data.nonce
                         },
-                        method: paymentMethod.code
+                        method: "paypal_express" || paymentMethod.code
                     }
                 })
             });

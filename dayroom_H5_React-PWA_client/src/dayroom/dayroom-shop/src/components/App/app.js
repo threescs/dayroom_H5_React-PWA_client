@@ -9,7 +9,7 @@ import OnlineIndicator from 'src/components/OnlineIndicator';
 import ErrorNotifications from './errorNotifications';
 import renderRoutes from './renderRoutes';
 import errorRecord from 'src/util/createErrorRecord';
-
+// import IndexApp from './routerConfig';
 class App extends Component {
     static propTypes = {
         app: shape({

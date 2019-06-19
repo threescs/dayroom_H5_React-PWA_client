@@ -106,7 +106,7 @@ accountSetting:
                 content-type: 'text/html'
         body:
             engine: mustache
-            template: resource.template
+            template: './templates/category-shell.mst'
             provide:
                 bundles: assetManifest.bundles
                 isDevelopment: isDevelopment

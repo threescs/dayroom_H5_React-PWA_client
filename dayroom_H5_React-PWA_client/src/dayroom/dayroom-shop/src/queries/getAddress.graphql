@@ -1,0 +1,23 @@
+query storeAddressData {
+    customer {
+        firstname
+        lastname
+        suffix
+        email
+        id
+        addresses {
+        firstname
+        lastname
+        street
+        city
+        region {
+            region_code
+            region
+            region_id
+        }
+        postcode
+        country_id
+        telephone
+        }
+    }
+}
