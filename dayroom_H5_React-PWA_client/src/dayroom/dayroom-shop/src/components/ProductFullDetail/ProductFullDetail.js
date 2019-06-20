@@ -114,7 +114,6 @@ class ProductFullDetail extends Component {
     };
 
     handleSelectionChange = (optionId, selection) => {
-        console.log(optionId, selection);
         this.setState(({ optionSelections }) => ({
             optionSelections: new Map(optionSelections).set(
                 optionId,

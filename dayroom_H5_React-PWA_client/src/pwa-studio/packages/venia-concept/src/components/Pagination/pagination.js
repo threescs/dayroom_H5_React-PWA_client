@@ -170,7 +170,6 @@ class Pagination extends Component {
     syncPage = () => {
         const { location, pageControl } = this.props;
         const { currentPage, setPage, totalPages } = pageControl;
-        console.log(pageControl);
         const queryPage = Math.max(
             1,
             // Note: The ~ operator is a bitwise NOT operator.
