@@ -62,7 +62,6 @@ class Category extends Component {
                 }}
             >
                 {({ loading, error, data }) => {
-                    console.log(data);
                     if (error) return <div>Data Fetch Error</div>;
                     // If our pagination component has mounted, then we have
                     // a total page count in the store, so we continue to render
