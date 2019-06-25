@@ -190,7 +190,7 @@ class Form extends Component {
                     </Section>
                 </div>
                 <div className={classes.footer}>
-                    <Button onClick={this.dismissCheckout}>Back to Cart</Button>
+                    {/* <Button onClick={this.dismissCheckout}>Back to Cart</Button> */}
                     <SubmitButton
                         submitting={submitting}
                         valid={ready}

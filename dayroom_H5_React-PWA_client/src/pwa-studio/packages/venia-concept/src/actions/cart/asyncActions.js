@@ -1,6 +1,7 @@
 import { RestApi, Util } from '@magento/peregrine';
 
 import { closeDrawer, toggleDrawer } from 'src/actions/app';
+import { addressCheckout } from 'src/actions/checkout'
 import checkoutActions from 'src/actions/checkout';
 import actions from './actions';
 
@@ -65,7 +66,7 @@ export const createCart = () =>
             dispatch(actions.getCart.receive(error));
         }
     };
-
+// 加购 
 export const addItemToCart = (payload = {}) => {
     const { item, quantity } = payload;
     const writingImageToCache = writeImageToCache(item);
@@ -106,6 +107,72 @@ export const addItemToCart = (payload = {}) => {
             // so a successful retry will wind up here anyway.
             await dispatch(getCartDetails({ forceRefresh: true }));
             await dispatch(toggleDrawer('cart'));
+            dispatch(
+                actions.addItem.receive({ cartItem: response, item, quantity })
+            );
+        } catch (error) {
+            const { response, noCartId } = error;
+
+            dispatch(actions.addItem.receive(error));
+
+            // check if the cart has expired
+            if (noCartId || (response && response.status === 404)) {
+                // Delete the cached ID from local storage and Redux.
+                // In contrast to the save, make sure storage deletion is
+                // complete before dispatching the error--you don't want an
+                // upstream action to try and reuse the known-bad ID.
+                await dispatch(removeCart());
+                // then create a new one
+                await dispatch(createCart());
+                // then retry this operation
+                return thunk(...arguments);
+            }
+        }
+    };
+};
+
+// buy it now 
+export const buyNowToCart = (payload = {}) => {
+    const { item, quantity } = payload;
+    const writingImageToCache = writeImageToCache(item);
+
+    return async function thunk(dispatch, getState) {
+        await writingImageToCache;
+        dispatch(actions.addItem.request(payload));
+
+        try {
+            const { cart, user } = getState();
+            const { cartId } = cart;
+
+            if (!cartId) {
+                const missingCartIdError = new Error(
+                    'Missing required information: cartId'
+                );
+                missingCartIdError.noCartId = true;
+                throw missingCartIdError;
+            }
+
+            const cartItem = toRESTCartItem(cartId, payload);
+
+            const { isSignedIn } = user;
+            const guestCartEndpoint = `/rest/V1/guest-carts/${cartId}/items`;
+            const signedInCartEndpoint = '/rest/V1/carts/mine/items';
+            const cartEndpoint = isSignedIn
+                ? signedInCartEndpoint
+                : guestCartEndpoint;
+
+            const response = await request(cartEndpoint, {
+                method: 'POST',
+                body: JSON.stringify({ cartItem })
+            });
+
+            // 2019-02-07  Moved these dispatches to the success clause of
+            // addItemToCart. The cart should only open on success.
+            // In the catch clause, this action creator calls its own thunk,
+            // so a successful retry will wind up here anyway.
+            await dispatch(getCartDetails({ forceRefresh: true }));
+            await dispatch(toggleDrawer('cart'));
+            await dispatch(addressCheckout());
             dispatch(
                 actions.addItem.receive({ cartItem: response, item, quantity })
             );
