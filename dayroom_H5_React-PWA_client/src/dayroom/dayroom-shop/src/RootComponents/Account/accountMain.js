@@ -4,6 +4,7 @@ import classify from 'src/classify'
 import { Query } from 'src/drivers';
 import AddressBook from './addressBook';
 import AccountInfo from "./accountInfo";
+// import AccountInfoForm from './accountInfoForm';
 import addressQuery from 'src/queries/getAddress.graphql';
 import { loadingIndicator } from 'src/components/LoadingIndicator';
 class AccountMain extends Component {
@@ -21,6 +22,7 @@ class AccountMain extends Component {
               <div>
                 <AccountInfo customerInfo={customerInfo}/>
                 <AddressBook addresses={addressesd}/>
+                {/* <AccountInfoForm/> */}
               </div>
             )
           }}

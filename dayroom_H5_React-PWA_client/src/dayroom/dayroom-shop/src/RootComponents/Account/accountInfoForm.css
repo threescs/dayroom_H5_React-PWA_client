@@ -1,0 +1,86 @@
+
+.editForm {
+  padding-left: .9375rem;
+  padding-right: .9375rem;
+}
+
+@media screen and (min-width:768px){
+    .fieldsGroup {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .fieldsGroup .fieldItem {
+      flex-shrink: 0;
+      width: 48%;
+    }
+}
+
+.fieldItem {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #666;
+  padding:.25rem .625rem 0;
+  margin-bottom: .9375rem;
+}
+.fieldItem label {
+  font-size: 14px;
+  color: #999;
+}
+.fieldItem input{
+  font-size: 14px;
+  line-height: 1.25rem;
+  outline: none;
+  border:none;
+  margin-top:.3125rem;
+  margin-bottom:.3125rem;
+  padding:0;
+}
+
+.checkboxField {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.checkboxField label {
+  font-size: 14px;
+  color: #666;
+  margin-left: .3125rem;
+}
+
+.actionBar {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.actionSaveBtn ,
+.addSaveBtn {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  font-family: Gibson;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 2px;
+  background: #ea9273;
+}
+
+/* Change Password Block */
+.changePwdBlock {
+  margin-top: 1.25rem;
+}
+
+.changePwdBlock .fieldItem {
+  padding-bottom: 4px;
+}
+
+.changePwdBlock h2 ,
+.addressInfo h2 {
+  font-size: 16px;
+  color: #95a9ca;
+  margin-bottom: .625rem;
+}

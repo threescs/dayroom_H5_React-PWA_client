@@ -1,0 +1,59 @@
+.root {
+  padding-left: .9375rem;
+  padding-right: .9375rem;
+}
+
+.title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height:1.125rem;
+  border-bottom: 2px solid #999;
+  padding-bottom: .625rem;
+  padding-top: .625rem;
+}
+
+.content {
+  font-size: 14px;
+  margin-top: 1.25rem;
+}
+
+/* .addressList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+} */
+
+.addressItem {
+  margin-bottom: 1.875rem;
+}
+
+.addressItem address {
+  font-style: normal;
+  line-height: 1.45em;
+}
+
+.addressItem .status {
+  color: #95a9ca;
+}
+
+.addressItem .action {
+  margin-top: .625rem;
+}
+
+.addressItem .action a {
+  color: #ea9273;
+  text-decoration: underline;
+}
+
+.action .addBtn {
+  display: inline-block;
+  font-size: 14px;
+  color:#fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 2px;
+  background: #ea9273;
+  margin-bottom: 1.875rem;
+}
