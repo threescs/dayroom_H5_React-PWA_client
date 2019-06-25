@@ -15,7 +15,6 @@ class Trigger extends Component {
 
     render() {
         const { action, children, classes } = this.props;
-
         return (
             <button className={classes.root} type="button" onClick={action}>
                 {children}
