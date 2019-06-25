@@ -17,6 +17,14 @@ export const beginCheckout = () =>
         dispatch(getShippingMethods());
         dispatch(getCountries());
     };
+// 发送一个address的dispatch
+export const addressCheckout = () =>
+    async function thunk(dispatch) {
+        dispatch(actions.begin());
+        dispatch(getShippingMethods());
+        dispatch(getCountries());
+        dispatch(actions.edit('address'));
+    };
 
 export const cancelCheckout = () =>
     async function thunk(dispatch) {
