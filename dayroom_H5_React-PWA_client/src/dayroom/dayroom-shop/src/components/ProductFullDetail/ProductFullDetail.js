@@ -67,7 +67,8 @@ class ProductFullDetail extends Component {
             ),
             description: string
         }).isRequired,
-        addToCart: func.isRequired
+        addToCart: func.isRequired,
+        buyNow: func.isRequired
     };
 
     static getDerivedStateFromProps(props, state) {
@@ -109,12 +110,27 @@ class ProductFullDetail extends Component {
         if (isProductConfigurable(product)) {
             appendOptionsToPayload(payload, optionSelections, optionCodes);
         }
-
         addToCart(payload);
     };
 
+    buyNow = () => {
+        const { props, state } = this;
+        const { optionSelections, quantity, optionCodes } = state;
+        const { buyNow, product } = props;
+
+        const payload = {
+            item: product,
+            productType: product.__typename,
+            quantity
+        };
+
+        if (isProductConfigurable(product)) {
+            appendOptionsToPayload(payload, optionSelections, optionCodes);
+        }
+        buyNow(payload);
+    }
+
     handleSelectionChange = (optionId, selection) => {
-        console.log(optionId, selection);
         this.setState(({ optionSelections }) => ({
             optionSelections: new Map(optionSelections).set(
                 optionId,
@@ -206,7 +222,8 @@ class ProductFullDetail extends Component {
             isMissingOptions,
             mediaGalleryEntries,
             productOptions,
-            props
+            props,
+            buyNow
         } = this;
         const { classes, isAddingItem, product } = props;
         const { regularPrice, minimalPrice } = product.price;
@@ -366,7 +383,7 @@ class ProductFullDetail extends Component {
                     </Button>
                     <Button
                         priority="high"
-                        onClick={addToCart}
+                        onClick={buyNow}
                         disabled={isAddingItem || isMissingOptions}
                     >
                         <span>Buy It Now</span>

@@ -33,7 +33,6 @@ const appendOptionsToPayload = (
         parentSku: item.sku,
         item: Object.assign({}, selectedVariant.product)
     });
-
     return payload;
 };
 
