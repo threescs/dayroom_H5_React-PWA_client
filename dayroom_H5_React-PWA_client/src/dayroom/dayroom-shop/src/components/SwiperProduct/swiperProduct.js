@@ -41,15 +41,16 @@ class SwiperProduct extends Component {
                 }}
             >
                 {({ data, error }) => {
-                if (error) return (<div>Data Fetch Error</div>)
-                  const produtItem = data.category ? data.category.products.items : null;
-                  const categoryTitle = data.category ? data.category.name : null;
+                if (error) return <div>Data Fetch Error</div>
+                  console.log(data);
+                  const produtItem = (data && data.category) ? data.category.products : null;
+                  const categoryTitle = (data && data.category) ? data.category.name : null;
                   return (
                     <div className="product-banner">
                       <div className="product-title">{categoryTitle}</div>
                       <SwiperContainer className="swiper-gallery" settings={settings} >
                           {
-                            produtItem.map(item => (
+                            produtItem.items.map(item => (
                               <SwiperSlide key={item.id}>
                                 <GalleryItem item={this.mapGalleryItem(item)} />
                               </SwiperSlide>

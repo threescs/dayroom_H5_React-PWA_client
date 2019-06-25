@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { string, func } from 'prop-types';
 
 import { connect, Query } from 'src/drivers';
-import { addItemToCart } from 'src/actions/cart';
+import {  addItemToCart, buyNowToCart } from 'src/actions/cart';
 import { loadingIndicator } from 'src/components/LoadingIndicator';
 import ProductFullDetail from 'src/components/ProductFullDetail';
 import getUrlKey from 'src/util/getUrlKey';
@@ -18,12 +18,18 @@ import productQuery from '../../queries/getProductDetail.graphql';
 class Product extends Component {
     static propTypes = {
         addItemToCart: func.isRequired,
+        buyNowToCart: func.isRequired,
         cartId: string
     };
 
     addToCart = async (item, quantity) => {
         const { addItemToCart, cartId } = this.props;
         await addItemToCart({ cartId, item, quantity });
+    };
+
+    buyNowToCart = async (item, quantity) => {
+        const { buyNowToCart, cartId } = this.props;
+        await buyNowToCart({ cartId, item, quantity });
     };
 
     componentDidMount() {
@@ -56,6 +62,7 @@ class Product extends Component {
                         <ProductFullDetail
                             product={this.mapProduct(product)}
                             addToCart={this.props.addItemToCart}
+                            buyNow={this.props.buyNowToCart}
                         />
                     );
                 }}
@@ -65,7 +72,8 @@ class Product extends Component {
 }
 
 const mapDispatchToProps = {
-    addItemToCart
+    addItemToCart,
+    buyNowToCart
 };
 
 export default connect(
