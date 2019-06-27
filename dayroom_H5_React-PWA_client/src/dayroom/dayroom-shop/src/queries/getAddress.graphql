@@ -6,18 +6,20 @@ query storeAddressData {
         email
         id
         addresses {
-        firstname
-        lastname
-        street
-        city
-        region {
-            region_code
-            region
-            region_id
-        }
-        postcode
-        country_id
-        telephone
+            firstname
+            lastname
+            street
+            city
+            region {
+                region_code
+                region
+                region_id
+            }
+            postcode
+            country_id
+            telephone
+            default_shipping
+            default_billing
         }
     }
 }

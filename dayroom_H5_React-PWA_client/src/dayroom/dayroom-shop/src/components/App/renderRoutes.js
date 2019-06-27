@@ -15,6 +15,7 @@ const renderRoutingError = props => <ErrorView {...props} />;
 const renderRoutes = () => (
     <Switch>
         <Route exact path="/accountEdit" component={AccountInfoForm} />
+        <Route exact path="/accountChangePwd" component={AccountInfoForm} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/accountAddress" component={AccountAddress} />
         <Route exact path="/accountNewAddress" component={AddNewAddress} />

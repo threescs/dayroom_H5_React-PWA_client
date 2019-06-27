@@ -1,4 +1,6 @@
-
+.title {
+  padding: .625rem .9375rem;
+}
 .editForm {
   padding-left: .9375rem;
   padding-right: .9375rem;

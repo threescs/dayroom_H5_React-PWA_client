@@ -22,7 +22,6 @@ class AccountMain extends Component {
               <div>
                 <AccountInfo customerInfo={customerInfo}/>
                 <AddressBook addresses={addressesd}/>
-                {/* <AccountInfoForm/> */}
               </div>
             )
           }}
