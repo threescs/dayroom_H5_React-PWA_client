@@ -113,14 +113,14 @@ class Product extends Component {
                 </div>
                 {mask}
                 <Kebab>
-                    <Section
+                    {/* <Section
                         text="Add to favorites"
                         onClick={this.favoriteItem}
                         icon="Heart"
                         iconAttributes={
                             this.state.isFavorite ? favoritesFill : {}
                         }
-                    />
+                    /> */}
                     <Section
                         text="Edit item"
                         onClick={this.editItem}
