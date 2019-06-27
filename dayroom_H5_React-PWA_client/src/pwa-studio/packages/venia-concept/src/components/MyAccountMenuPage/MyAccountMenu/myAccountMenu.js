@@ -11,17 +11,18 @@ class MyAccountMenu extends Component {
             signOutTitle: PropTypes.string,
             rewardsPoints: PropTypes.string
         }),
-        signOut: PropTypes.func
+        signOut: PropTypes.func,
+        closeDrawer: PropTypes.func
     };
 
     // TODO: add all menu items, use Badge component. Add purchase history page url.
     render() {
-        const { classes, signOut } = this.props;
+        const { classes, signOut, closeDrawer } = this.props;
 
         return (
             <nav className={classes.list}>
                 <MenuItem.Link title="Purchase History" to="/" />
-                <MenuItem.Link title="My Account" to="/account" />
+                <MenuItem.Link title="My Account" to="/account" onClick={closeDrawer}/>
                 <MenuItem.Button
                     title={
                         <span className={classes.signOutTitle}>Sign Out</span>
