@@ -1,0 +1,10 @@
+mutation myUpdateCustomer($CustomerInput:CustomerInput!){
+  updateCustomer(
+    input:$CustomerInput
+  ){
+    customer {
+      firstname
+      lastname
+    }
+  }
+}
