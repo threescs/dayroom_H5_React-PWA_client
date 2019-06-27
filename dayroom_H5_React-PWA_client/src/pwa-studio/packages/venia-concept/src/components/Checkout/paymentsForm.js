@@ -153,7 +153,7 @@ class PaymentsForm extends Component {
      */
     formChildren = ({ formState }) => {
         const { classes, submitting } = this.props;
-
+        console.log(submitting);
         return (
             <Fragment>
                 <div className={classes.body}>
