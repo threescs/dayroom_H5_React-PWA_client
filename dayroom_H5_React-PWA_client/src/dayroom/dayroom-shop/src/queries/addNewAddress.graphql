@@ -1,0 +1,18 @@
+mutation myCreateAddress($CustomerAddressInput:CustomerAddress!){
+  createCustomerAddress(
+    input:$CustomerAddressInput
+  ){
+    region {
+      region
+      region_id
+      region_code
+    }
+    country_id
+    street
+    telephone
+    postcode
+    city
+    default_shipping
+    default_billing
+  }
+}
