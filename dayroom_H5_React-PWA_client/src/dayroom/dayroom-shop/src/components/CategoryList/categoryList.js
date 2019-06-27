@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { string, number, shape } from 'prop-types';
-import { Query } from 'src/drivers';
+// import { Query } from 'src/drivers';
 import classify from 'src/classify';
 import { loadingIndicator } from 'src/components/LoadingIndicator';
 import defaultClasses from './categoryList.css';
 import CategoryTile from './categoryTile';
-import categoryListQuery from '../../queries/getCategoryList.graphql';
+// import categoryListQuery from '../../queries/getCategoryList.graphql';
 import datas from './mockData';
 
 class CategoryList extends Component {
@@ -45,8 +45,8 @@ class CategoryList extends Component {
 
         return (
             <div className={classes.root}>
-                <Query query={categoryListQuery} variables={{ id }}>
-                    {({ loading, error, data }) => {
+                {/* <Query query={categoryListQuery} variables={{ id }}> */}
+                    {/* {({ loading, error, data }) => {
                         data = datas;
                         if (error) {
                             return (
@@ -57,26 +57,26 @@ class CategoryList extends Component {
                         }
                         if (loading) {
                             return loadingIndicator;
-                        }
-                        if (data.category.children.length === 0) {
+                        } */}
+                        {/* if (datas.category.children.length === 0) {
                             return (
                                 <div className={classes.noResults}>
                                     No child categories found.
                                 </div>
                             );
-                        }
-                        return (
+                        } */}
+                        {/* return ( */}
                             <div className={classes.content}>
-                                {data.category.children.map(item => (
+                                {datas.category.children.map(item => (
                                     <CategoryTile
                                         item={this.mapCategory(item)}
                                         key={item.url_key}
                                     />
                                 ))}
                             </div>
-                        );
-                    }}
-                </Query>
+                        {/* ); */}
+                    {/* }} */}
+                {/* </Query> */}
             </div>
         );
     }

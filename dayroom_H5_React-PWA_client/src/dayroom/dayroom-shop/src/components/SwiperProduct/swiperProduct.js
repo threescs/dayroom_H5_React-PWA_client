@@ -8,6 +8,8 @@ import SwiperContainer from 'src/components/SwiperContainer'
 import SwiperSlide from "src/components/SwiperSlide";
 import GalleryItem from "src/components/Gallery/item";
 import categoryQuery from 'src/queries/getCategory.graphql';
+import { loadingIndicator } from 'src/components/LoadingIndicator';
+
 class SwiperProduct extends Component {
   mapGalleryItem(data) {
       data.media_gallery_entries.forEach((item) => {
@@ -40,9 +42,10 @@ class SwiperProduct extends Component {
                     currentPage: 1
                 }}
             >
-                {({ data, error }) => {
-                if (error) return <div>Data Fetch Error</div>
+                {({ loading, data, error }) => {
                   console.log(data);
+                  if (error) return <div>Data Fetch Error</div>
+                  if (loading) return (loadingIndicator)
                   const produtItem = (data && data.category) ? data.category.products : null;
                   const categoryTitle = (data && data.category) ? data.category.name : null;
                   return (

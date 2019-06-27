@@ -153,12 +153,12 @@ class PaymentsForm extends Component {
      */
     formChildren = ({ formState }) => {
         const { classes, submitting } = this.props;
-
+        console.log(submitting);
         return (
             <Fragment>
                 <div className={classes.body}>
                     <h2 className={classes.heading}>Billing Information</h2>
-                    {/* <div className={classes.braintree}>
+                    <div className={classes.braintree}>
                         <BraintreeDropin
                             isRequestingPaymentNonce={
                                 this.state.isRequestingPaymentNonce
@@ -166,15 +166,15 @@ class PaymentsForm extends Component {
                             onError={this.cancelPaymentNonceRequest}
                             onSuccess={this.setPaymentNonce}
                         />
-                    </div> */}
-                    {/* <div className={classes.address_check}>
+                    </div>
+                    <div className={classes.address_check}>
                         <Checkbox
                             field="addresses_same"
                             label="Billing address same as shipping address"
                         />
                     </div>
                     {!formState.values.addresses_same &&
-                        this.billingAddressFields()} */}
+                        this.billingAddressFields()}
                 </div>
                 <div className={classes.footer}>
                     <Button className={classes.button} onClick={this.cancel}>
