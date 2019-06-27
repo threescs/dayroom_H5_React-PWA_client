@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { signOut } from 'src/actions/user';
 import { getUserInformation } from 'src/selectors/user';
 import MyAccountMenuPage from './myAccountMenuPage';
+import { closeDrawer } from 'src/actions/app';
 
 export default compose(
     withRouter,
@@ -11,6 +12,6 @@ export default compose(
         state => ({
             user: getUserInformation(state)
         }),
-        { signOut }
+        { signOut, closeDrawer }
     )
 )(MyAccountMenuPage);

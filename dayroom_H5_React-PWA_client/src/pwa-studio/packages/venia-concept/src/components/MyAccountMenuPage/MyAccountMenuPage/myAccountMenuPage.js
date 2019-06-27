@@ -13,6 +13,7 @@ class MyAccountMenuPage extends Component {
             logoContainer: PropTypes.string
         }),
         signOut: PropTypes.func,
+        closeDrawer: PropTypes.func,
         onClose: PropTypes.func,
         history: PropTypes.shape({}),
         user: PropTypes.shape({
@@ -30,12 +31,12 @@ class MyAccountMenuPage extends Component {
     };
 
     render() {
-        const { classes, user, onClose } = this.props;
+        const { classes, user, onClose, closeDrawer } = this.props;
 
         return (
             <div className={classes.root}>
                 <Header user={user} onClose={onClose} />
-                <MyAccountMenu signOut={this.handleSignOut} />
+                <MyAccountMenu signOut={this.handleSignOut} closeDrawer={closeDrawer}/>
                 <div className={classes.logoContainer}>
                     <Logo height={32} />
                 </div>
