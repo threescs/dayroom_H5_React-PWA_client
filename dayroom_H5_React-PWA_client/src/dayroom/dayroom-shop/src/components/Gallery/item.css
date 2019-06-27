@@ -85,3 +85,6 @@
     background-color: rgb(var(--venia-grey));
     width: 3rem;
 }
+.product_name {
+    word-break: break-all;
+}

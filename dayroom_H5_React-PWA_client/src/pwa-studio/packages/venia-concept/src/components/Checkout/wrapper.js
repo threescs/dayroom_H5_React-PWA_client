@@ -133,7 +133,7 @@ export class CheckoutWrapper extends Component {
             shippingAddress,
             shippingMethod
         } = checkout;
-
+        console.log(checkout);
         const miscProps = {
             availableShippingMethods,
             hasPaymentMethod: hasData(paymentData),

@@ -198,10 +198,8 @@ export const submitOrder = () =>
 
         let billing_address = await retrieveBillingAddress();
         const paymentMethod = await retrievePaymentMethod();
-        console.log(paymentMethod);
         const shipping_address = await retrieveShippingAddress();
         const shipping_method = await retrieveShippingMethod();
-        console.log(shipping_method);
         if (billing_address.sameAsShippingAddress) {
             billing_address = shipping_address;
         } else {

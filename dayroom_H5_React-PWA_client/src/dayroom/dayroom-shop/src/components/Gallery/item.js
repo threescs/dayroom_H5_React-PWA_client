@@ -94,7 +94,7 @@ class GalleryItem extends Component {
                     <div className={classes.colormsg}>3 colors</div>
                 </div>
                 <Link to={resourceUrl(productLink)} className={classes.name}>
-                    <span>{name}</span>
+                    <span className={classes.product_name}>{name}</span>
                 </Link>
                 <div className={classes.price}>
                     <Price
