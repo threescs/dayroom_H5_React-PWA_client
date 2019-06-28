@@ -1,6 +1,6 @@
-mutation myUpdateCustomer($CustomerInput:CustomerInput!){
+mutation myUpdateCustomer($input:CustomerInput!){
   updateCustomer(
-    input:$CustomerInput
+    input:$input
   ){
     customer {
       firstname

@@ -1,6 +1,6 @@
-mutation myCreateAddress($CustomerAddressInput:CustomerAddress!){
+mutation myCreateAddress($input:CustomerAddressInput!){
   createCustomerAddress(
-    input:$CustomerAddressInput
+    input:$input
   ){
     region {
       region

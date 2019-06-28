@@ -15,7 +15,6 @@ class AddNewAddressForm extends Component {
   render() {
     const { classes } = this.props;
     return (
-    /*
       <Mutation mutation={newAddressMutation}>
         {(createCustomerAddress,{data}) => {
 
@@ -31,8 +30,8 @@ class AddNewAddressForm extends Component {
                     lastname:addressForm.lastname.value,
                     region:{
                       region:addressForm.state.text,
-                      region_id:addressForm.state.value,
-                      region_code:addressForm.state.index
+                      region_id:0,
+                      region_code:addressForm.state.value
                     },
                     country_id:addressForm.country.value,
                     street:[addressForm.streetsddress.value],
@@ -69,7 +68,12 @@ class AddNewAddressForm extends Component {
                     </div>
                     <div className={classes.fieldItem}>
                       <label htmlFor="state">State/Province</label>
-                      <select type="text" id="state" name="state" ></select>
+                      <select type="text" id="state" name="state" >
+                        <option value="test">test</option>
+                        <option value="test1">test1</option>
+                        <option value="test2">test2</option>
+                        <option value="test3">test3</option>
+                      </select>
                     </div>
                     <div className={classes.fieldItem}>
                       <label htmlFor="postcode">Zip/Postal Code *</label>
@@ -101,68 +105,76 @@ class AddNewAddressForm extends Component {
           )
         }}
       </Mutation>
-      */
 
-      <div className={classes.root}>
-        <div className={classes.title}>add address</div>
-        <div className={classes.content}>
-          <form className={classes.editForm}>
-            <div className={classes.basicInfo}>
-              <div className={classes.fieldItem}>
-                <label htmlFor="firstname">First name*</label>
-                <input type="text" id="firstname" name="firstname" />
-              </div>
-              <div className={classes.fieldItem}>
-                <label htmlFor="lastname">Last name*</label>
-                <input type="text" id="lastname" name="lastname" />
-              </div>
-              <div className={classes.fieldItem}>
-                <label htmlFor="phonenumber">Phone number*</label>
-                <input type="text" id="phonenumber" name="phonenumber" />
-              </div>
-            </div>
-            <div className={classes.addressInfo}>
-              <h2>Address</h2>
-              <div className={classes.fieldItem}>
-                <label htmlFor="streetsddress">Street Address*</label>
-                <input type="text" id="streetsddress" name="streetsddress" />
-              </div>
-              <div className={classes.fieldItem}>
-                <label htmlFor="city">City*</label>
-                <input type="text" id="city" name="city" />
-              </div>
-              <div className={classes.fieldItem}>
-                <label htmlFor="state">State/Province</label>
-                <select type="text" id="state" name="state" ></select>
-              </div>
-              <div className={classes.fieldItem}>
-                <label htmlFor="postcode">Zip/Postal Code *</label>
-                <input type="text" id="postcode" name="postcode" />
-              </div>
-              <div className={classes.fieldItem}>
-                <label htmlFor="phonenumber">Phone number*</label>
-                <input type="text" id="phonenumber" name="phonenumber" />
-              </div>
-              <div className={classes.fieldItem}>
-                <label htmlFor="country">Country*</label>
-                <select type="text" id="country" name="country" ></select>
-              </div>
 
-              <div className={classes.checkboxField}>
-                <input type="checkbox" id="defaultbilling" name="defaultbilling"/>
-                <label htmlFor="defaultbilling">Use as my default billing address</label>
-              </div>
-              <div className={classes.checkboxField}>
-                <input type="checkbox" id="defaultshipping" name="defaultshipping"/>
-                <label htmlFor="defaultshipping">Use as my default shipping address</label>
-              </div>
-            </div>
-            <div className={classes.actionBar}>
-              <a href="#" className={classes.actionSaveBtn}>save</a>
-            </div>
-          </form>
-        </div>
-      </div>
+      // <div className={classes.root}>
+      //   <div className={classes.title}>add address</div>
+      //   <div className={classes.content}>
+      //     <form className={classes.editForm}>
+      //       <div className={classes.basicInfo}>
+      //         <div className={classes.fieldItem}>
+      //           <label htmlFor="firstname">First name*</label>
+      //           <input type="text" id="firstname" name="firstname" />
+      //         </div>
+      //         <div className={classes.fieldItem}>
+      //           <label htmlFor="lastname">Last name*</label>
+      //           <input type="text" id="lastname" name="lastname" />
+      //         </div>
+      //         <div className={classes.fieldItem}>
+      //           <label htmlFor="phonenumber">Phone number*</label>
+      //           <input type="text" id="phonenumber" name="phonenumber" />
+      //         </div>
+      //       </div>
+      //       <div className={classes.addressInfo}>
+      //         <h2>Address</h2>
+      //         <div className={classes.fieldItem}>
+      //           <label htmlFor="streetsddress">Street Address*</label>
+      //           <input type="text" id="streetsddress" name="streetsddress" />
+      //         </div>
+      //         <div className={classes.fieldItem}>
+      //           <label htmlFor="city">City*</label>
+      //           <input type="text" id="city" name="city" />
+      //         </div>
+      //         <div className={classes.fieldItem}>
+      //           <label htmlFor="state">State/Province</label>
+      //           <select type="text" id="state" name="state" >
+      //             <option value="ab">test</option>
+      //             <option value="ab2">test1</option>
+      //             <option value="ab3">test2</option>
+      //             <option value="ab4">test3</option>
+      //           </select>
+      //         </div>
+      //         <div className={classes.fieldItem}>
+      //           <label htmlFor="postcode">Zip/Postal Code *</label>
+      //           <input type="text" id="postcode" name="postcode" />
+      //         </div>
+      //         <div className={classes.fieldItem}>
+      //           <label htmlFor="phonenumber">Phone number*</label>
+      //           <input type="text" id="phonenumber" name="phonenumber" />
+      //         </div>
+      //         <div className={classes.fieldItem}>
+      //           <label htmlFor="country">Country*</label>
+      //           <select type="text" id="country" name="country" >
+      //             <option value="US">US</option>
+      //             <option value="AU">AU</option>
+      //           </select>
+      //         </div>
+
+      //         <div className={classes.checkboxField}>
+      //           <input type="checkbox" id="defaultbilling" name="defaultbilling"/>
+      //           <label htmlFor="defaultbilling">Use as my default billing address</label>
+      //         </div>
+      //         <div className={classes.checkboxField}>
+      //           <input type="checkbox" id="defaultshipping" name="defaultshipping"/>
+      //           <label htmlFor="defaultshipping">Use as my default shipping address</label>
+      //         </div>
+      //       </div>
+      //       <div className={classes.actionBar}>
+      //         <a href="#" className={classes.actionSaveBtn}>save</a>
+      //       </div>
+      //     </form>
+      //   </div>
+      // </div>
     )
   }
 }

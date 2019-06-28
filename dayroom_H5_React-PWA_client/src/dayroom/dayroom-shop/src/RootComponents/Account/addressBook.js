@@ -68,7 +68,7 @@ class AddressBook extends Component {
               <p className={classes.addressCountry}>{defautlShippingAddress.country_id}</p>
               <p className={classes.telephone}>T:{defautlShippingAddress.telephone}</p>
             </address>
-            {/* <p className={classes.actions}><Link className={classes.edit} to="/accountNewAddress">edit</Link></p> */}
+            <p className={classes.actions}><Link className={classes.edit} to="/accountNewAddress">edit</Link></p>
           </div>
         </div>
         <div className={classes.contentItem}>
@@ -81,27 +81,27 @@ class AddressBook extends Component {
               <p className={classes.addressCountry}>{defautlShippingAddress.country_id}</p>
               <p className={classes.telephone}>T:{defaultBillingAddress.telephone}</p>
             </address>
-            {/* <p className={classes.actions}><Link className={classes.edit} to="/accountNewAddress">edit</Link></p> */}
+            <p className={classes.actions}><Link className={classes.edit} to="/accountNewAddress">edit</Link></p>
           </div>
         </div>
           {
             generalAddress.map((item, index) => (
               <div className={classes.contentItem} key={item.postcode}>
                 <div className={classes.addressInfo}>
-                  <address>
-                    <p className={classes.name}>{item.firstname}{item.lastname}</p>
-                    <p className={classes.addressDetail}>{item.city},{item.region.region},{item.postcode}</p>
-                    <p className={classes.addressCity}>Sydney,NAW,1523</p>
-                    <p className={classes.addressCountry}>Australia</p>
-                    <p className={classes.telephone}>T:{item.telephone}</p>
-                  </address>
-                  {/* <p className={classes.actions}><Link className={classes.edit} to="/accountNewAddress">edit</Link></p> */}
+                <address>
+                  <p className={classes.name}>{item.firstname}{item.lastname}</p>
+                  <p className={classes.addressStreet}>{item.street}</p>
+                  <p className={classes.addressDetail}>{item.city},{item.region.region},{item.postcode}</p>
+                  <p className={classes.addressCountry}>{item.country_id}</p>
+                  <p className={classes.telephone}>T:{item.telephone}</p>
+                </address>
+                  <p className={classes.actions}><Link className={classes.edit} to="/accountNewAddress">edit</Link></p>
                 </div>
               </div>
             ))
           }
         </div>
-        {/* <div className={classes.actions}><Link to="/accountNewAddress" className={classes.button}>add new address</Link></div> */}
+        <div className={classes.actions}><Link to="/accountNewAddress" className={classes.button}>add new address</Link></div>
       </div>
     )
   }

@@ -18,14 +18,16 @@ class AccountInformation extends Component {
 
   render() {
     const { classes, customerInfo } = this.props;
-    const firstname= customerInfo ? customerInfo.firstname : null;
+    const firstname= customerInfo ? customerInfo.firstname : "";
+    const lastname= customerInfo ? customerInfo.lastname : "";
+    // cons lastname =
     const email= customerInfo ? customerInfo.email : null;
     return (
       <div className={classes.root}>
         <div className={classes.title}>account information</div>
         <div className={classes.content}>
           <div className={classes.accountInfo}>
-            <p className={classes.name}>{firstname}</p>
+            <p className={classes.name}>{firstname} {lastname}</p>
             <p className={classes.emial}>{email}</p>
             <div className={classes.actions}>
               <Link className={classes.edit} to="/accountEdit">Edit</Link>

@@ -52,6 +52,7 @@
 .actions a {
   color: #ea9273;
   text-transform: capitalize;
+  text-decoration: underline;
 }
 
 .actions .button {

@@ -1,0 +1,6 @@
+query storeAddressData {
+    customer {
+        firstname
+        lastname
+    }
+}
