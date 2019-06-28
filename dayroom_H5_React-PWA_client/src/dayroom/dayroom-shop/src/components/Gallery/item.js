@@ -125,10 +125,9 @@ class GalleryItem extends Component {
             <img
                 className={className}
                 // 站位图
-                src=''
+                src={transparentPlaceholder}
                 alt=""
                 width={imageWidth}
-                height={imageHeight}
             />
         );
     };

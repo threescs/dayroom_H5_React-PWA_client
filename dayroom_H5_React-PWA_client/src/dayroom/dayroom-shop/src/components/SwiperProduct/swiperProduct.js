@@ -43,7 +43,6 @@ class SwiperProduct extends Component {
                 }}
             >
                 {({ loading, data, error }) => {
-                  console.log(data);
                   if (error) return <div>Data Fetch Error</div>
                   if (loading) return (loadingIndicator)
                   const produtItem = (data && data.category) ? data.category.products : null;

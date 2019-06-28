@@ -34,9 +34,6 @@ class CategoryContent extends Component {
         const page = getQueryParameterValue({location:undefined,queryParameter:'page'});
         return page && page <= this.props.prevPageTotal?page:1; 
     }
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-    }
     render() {
         const { classes, pageControl, data, pageSize } = this.props;
         const items = data ? data.category.products.items : null;
