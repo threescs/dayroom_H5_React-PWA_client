@@ -63,7 +63,7 @@
         "stream-snitch": "~0.0.3",
         "wait-for-expect": "~1.1.0",
         "sass-loader": "~7.1.0",
-        "node-sass": "~4.10.0",
+        "node-sass": "~4.13.1",
         "rimraf": "2.6.2"
     },
     "resolutions": {
